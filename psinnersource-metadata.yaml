@@ -1,0 +1,28 @@
+name: Microservices testing
+description: In-depth microservices testing using Java, Cucumber, Restassured and Gradle. Create robust automated tests for microservices. Supports Request/response validation, Schema validation, parallel execution, Jenkins and Xray integration, includes several readymade step-definitions. This Automation Framework is environment agnostic and Saves time and effort to design, develop and setup the framework for API Testing typically by many weeks. This accelerator have all the required capabilities and features to perform API/Microservice Automation and built-in feature files to start writing the Automated test in BDD methodology.
+subGroup: Functional Testing
+groupName: Quality Engineering
+productName: TESTx
+productOwners:
+  - "Indra Prabha Sharma - indra.sharma@publicissapient.com"
+productBacklogUrl:
+logo:
+urls:
+  - shortDescription: Code & Documentation
+    link: https://pscode.lioncloud.net/psinnersource/quality-engineering/tang-java/microservices-testing-restassured-cucumber
+tags:
+  - "#QE"
+  - "#functional"
+  - "#testing"
+  - "#microservices"
+  - "#API"
+  - "#RestAssured"
+  - "#RESTApi"
+endorsements:
+  - "Lloyds Banking Group"
+upcomingFeatures:
+keyContacts:
+  - "Sumit Sharma - sumit.sharma31@publicissapient.com"
+benefits: To be added
+installationTime: To be added
+
