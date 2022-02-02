@@ -1,6 +1,6 @@
 Feature: User Registration
 
-  @apitest
+  @example
   Scenario Outline: User Post Details
     Given I have API "<API>"
     And I set content-type as JSON

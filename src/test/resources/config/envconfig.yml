@@ -5,8 +5,8 @@ commonconfigs:
   polling_time: '5'
 
 qaenv:
-  host_uri: 'https://jsonplaceholder.typicode.com'
-  context_path: '/comments'
+  host_uri: 'https://reqres.in'
+  context_path: '/api'
   follow_redirects: 'false'
 #  enable when proxy is required
 #  proxy: 'http://localhost:8080/'
