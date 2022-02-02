@@ -1,6 +1,5 @@
 package com.hsbc.qe.ui.stepdefinitions;
 
-import com.hsbc.qe.ui.pageobjects.BookingFormPage;
 import com.hsbc.qe.ui.pageobjects.LoginPage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
