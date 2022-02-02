@@ -1,7 +1,6 @@
 Feature: Create Hotel Bookings
   In order to make bookings
   Users should be able to create new bookings
-
   @regression
   Scenario: User should be able to login to swaglabs app
     Given user navigated to the "swaglabs" page
