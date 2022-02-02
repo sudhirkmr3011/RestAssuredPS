@@ -1,4 +1,4 @@
-package com.hsbc.qe.util;
+package com.hsbc.qe.api.util;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -6,13 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.common.base.Strings;
-import com.hsbc.qe.constants.ConfigConstants;
-import com.hsbc.qe.enums.ApiContext;
-import com.hsbc.qe.stepdefs.TestManagerContext;
+import com.hsbc.qe.api.constants.ConfigConstants;
+import com.hsbc.qe.api.enums.ApiContext;
+import com.hsbc.qe.api.stepdefs.TestManagerContext;
 import com.hsbc.qe.constants.Entity;
 import com.hsbc.qe.constants.FilePaths;
-import com.hsbc.qe.utils.DateUtils;
-import com.hsbc.qe.utils.YamlReaderUtils;
+import com.hsbc.qe.api.utils.DateUtils;
+import com.hsbc.qe.api.utils.YamlReaderUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

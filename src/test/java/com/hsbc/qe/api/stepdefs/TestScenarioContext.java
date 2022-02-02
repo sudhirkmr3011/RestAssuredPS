@@ -1,6 +1,6 @@
-package com.hsbc.qe.stepdefs;
+package com.hsbc.qe.api.stepdefs;
 
-import com.hsbc.qe.enums.ApiContext;
+import com.hsbc.qe.api.enums.ApiContext;
 
 import java.util.HashMap;
 import java.util.Map;

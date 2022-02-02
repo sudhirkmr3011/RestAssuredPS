@@ -1,4 +1,4 @@
-package com.hsbc.qe.customexceptions;
+package com.hsbc.qe.api.customexceptions;
 
 public class ContentNotFoundException extends Exception {
 

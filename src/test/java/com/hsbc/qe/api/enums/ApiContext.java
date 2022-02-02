@@ -1,4 +1,4 @@
-package com.hsbc.qe.enums;
+package com.hsbc.qe.api.enums;
 
 public enum ApiContext {
   API_NAME,

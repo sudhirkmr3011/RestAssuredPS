@@ -1,10 +1,10 @@
-package com.hsbc.qe.httpservicemanager;
+package com.hsbc.qe.api.httpservicemanager;
 
-import com.hsbc.qe.httpoperations.HttpsCertTrust;
-import com.hsbc.qe.httpoperations.WaitCondition;
-import com.hsbc.qe.constants.ConfigConstants;
-import com.hsbc.qe.customexceptions.CustomException;
-import com.hsbc.qe.utils.TimeUtil;
+import com.hsbc.qe.api.httpoperations.HttpsCertTrust;
+import com.hsbc.qe.api.httpoperations.WaitCondition;
+import com.hsbc.qe.api.constants.ConfigConstants;
+import com.hsbc.qe.api.customexceptions.CustomException;
+import com.hsbc.qe.api.utils.TimeUtil;
 import io.restassured.RestAssured;
 import io.restassured.filter.Filter;
 import io.restassured.specification.RequestSpecification;

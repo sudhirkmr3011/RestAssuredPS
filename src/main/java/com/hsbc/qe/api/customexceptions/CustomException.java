@@ -1,4 +1,4 @@
-package com.hsbc.qe.customexceptions;
+package com.hsbc.qe.api.customexceptions;
 
 public class CustomException extends RuntimeException {
 

@@ -1,8 +1,8 @@
-package com.hsbc.qe.utils;
+package com.hsbc.qe.api.utils;
 
 
-import com.hsbc.qe.customexceptions.ContentNotFoundException;
-import com.hsbc.qe.customexceptions.InvalidFileFormatException;
+import com.hsbc.qe.api.customexceptions.ContentNotFoundException;
+import com.hsbc.qe.api.customexceptions.InvalidFileFormatException;
 import io.restassured.internal.util.IOUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.slf4j.Logger;

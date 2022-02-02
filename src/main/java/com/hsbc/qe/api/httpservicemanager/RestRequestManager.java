@@ -1,4 +1,4 @@
-package com.hsbc.qe.httpservicemanager;
+package com.hsbc.qe.api.httpservicemanager;
 
 //import io.cucumber.java.it.Ma;
 import io.restassured.specification.RequestSpecification;
