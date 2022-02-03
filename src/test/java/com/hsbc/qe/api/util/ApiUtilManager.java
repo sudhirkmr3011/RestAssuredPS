@@ -10,7 +10,7 @@ import com.hsbc.qe.api.constants.ConfigConstants;
 import com.hsbc.qe.api.enums.ApiContext;
 import com.hsbc.qe.api.stepdefs.TestManagerContext;
 import com.hsbc.qe.constants.Entity;
-import com.hsbc.qe.constants.FilePaths;
+import com.hsbc.qe.api.constants.FilePaths;
 import com.hsbc.qe.api.utils.DateUtils;
 import com.hsbc.qe.api.utils.YamlReaderUtils;
 import org.slf4j.Logger;
