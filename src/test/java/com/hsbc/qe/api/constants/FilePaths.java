@@ -1,4 +1,4 @@
-package com.hsbc.qe.constants;
+package com.hsbc.qe.api.constants;
 
 public class FilePaths {
   public static final String API_PATH_REQUEST_JSON =
