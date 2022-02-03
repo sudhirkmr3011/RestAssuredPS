@@ -12,5 +12,5 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cucumber/cucumber-report.html", "json:target/cucumber.json",
                 "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm"
         })
-public class RunCucumberTest {
+public class RunAPITest {
 }
