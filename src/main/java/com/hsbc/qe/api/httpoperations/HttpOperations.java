@@ -1,6 +1,6 @@
-package com.hsbc.qe.httpoperations;
+package com.hsbc.qe.api.httpoperations;
 
-import com.hsbc.qe.customexceptions.CustomException;
+import com.hsbc.qe.api.customexceptions.CustomException;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 

@@ -1,4 +1,4 @@
-package com.hsbc.qe.utils;
+package com.hsbc.qe.api.utils;
 
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;

@@ -1,11 +1,11 @@
-package com.hsbc.qe.stepdefs;
+package com.hsbc.qe.api.stepdefs;
 
 import com.google.common.base.Strings;
-import com.hsbc.qe.httpservicemanager.RestRequestManager;
+import com.hsbc.qe.api.httpservicemanager.RestRequestManager;
+import com.hsbc.qe.api.util.ApiUtilManager;
 import com.hsbc.qe.constants.Entity;
 import com.hsbc.qe.constants.Headers;
-import com.hsbc.qe.enums.ApiContext;
-import com.hsbc.qe.util.ApiUtilManager;
+import com.hsbc.qe.api.enums.ApiContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.restassured.http.ContentType;

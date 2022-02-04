@@ -6,3 +6,6 @@ build
 apilogs
 target
 logs
+.allure/
+screenshots/
+

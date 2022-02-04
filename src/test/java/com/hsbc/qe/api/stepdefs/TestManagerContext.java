@@ -1,7 +1,7 @@
-package com.hsbc.qe.stepdefs;
+package com.hsbc.qe.api.stepdefs;
 
-import com.hsbc.qe.httpservicemanager.*;
-import com.hsbc.qe.constants.ConfigConstants;
+import com.hsbc.qe.api.httpservicemanager.*;
+import com.hsbc.qe.api.constants.ConfigConstants;
 import org.assertj.core.api.SoftAssertions;
 
 public class TestManagerContext {

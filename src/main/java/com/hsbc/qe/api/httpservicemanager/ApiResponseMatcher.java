@@ -1,4 +1,4 @@
-package com.hsbc.qe.httpservicemanager;
+package com.hsbc.qe.api.httpservicemanager;
 
 import io.restassured.response.Response;
 import org.hamcrest.Description;

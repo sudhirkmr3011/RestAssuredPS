@@ -1,11 +1,11 @@
-package com.hsbc.qe.stepdefs;
+package com.hsbc.qe.api.stepdefs;
 
-import com.hsbc.qe.enums.ApiContext;
-import com.hsbc.qe.httpservicemanager.HttpRequestManager;
-import com.hsbc.qe.httpservicemanager.HttpServiceAssertion;
-import com.hsbc.qe.httpservicemanager.RestRequestManager;
-import com.hsbc.qe.util.ApiUtilManager;
-import com.hsbc.qe.utils.JsonUtil;
+import com.hsbc.qe.api.enums.ApiContext;
+import com.hsbc.qe.api.httpservicemanager.HttpRequestManager;
+import com.hsbc.qe.api.httpservicemanager.HttpServiceAssertion;
+import com.hsbc.qe.api.httpservicemanager.RestRequestManager;
+import com.hsbc.qe.api.util.ApiUtilManager;
+import com.hsbc.qe.api.utils.JsonUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;

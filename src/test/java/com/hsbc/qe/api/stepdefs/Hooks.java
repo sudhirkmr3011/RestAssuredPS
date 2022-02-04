@@ -1,4 +1,4 @@
-package com.hsbc.qe.stepdefs;
+package com.hsbc.qe.api.stepdefs;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

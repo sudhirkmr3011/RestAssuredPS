@@ -1,13 +1,14 @@
-package com.hsbc.qe.httpservicemanager;
+package com.hsbc.qe.api.httpservicemanager;
 
 import com.google.common.base.Strings;
-import com.hsbc.qe.httpoperations.HttpOperations;
-import com.hsbc.qe.constants.ConfigConstants;
+import com.hsbc.qe.api.httpoperations.HttpOperations;
+import com.hsbc.qe.api.constants.ConfigConstants;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.hsbc.qe.api.httpservicemanager.HttpResponseManager;
 
 import java.net.URI;
 import java.net.URISyntaxException;

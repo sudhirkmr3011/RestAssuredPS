@@ -1,6 +1,6 @@
-package com.hsbc.qe.httpservicemanager;
+package com.hsbc.qe.api.httpservicemanager;
 
-import com.hsbc.qe.constants.ConfigConstants;
+import com.hsbc.qe.api.constants.ConfigConstants;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.config.SSLConfig;
 import io.restassured.path.json.config.JsonPathConfig;

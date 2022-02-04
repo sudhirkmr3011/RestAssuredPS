@@ -1,4 +1,4 @@
-package com.hsbc.qe.httpoperations;
+package com.hsbc.qe.api.httpoperations;
 
 import javax.net.ssl.TrustManager;
 import java.security.KeyManagementException;

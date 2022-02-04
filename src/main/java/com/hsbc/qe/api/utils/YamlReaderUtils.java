@@ -1,4 +1,4 @@
-package com.hsbc.qe.utils;
+package com.hsbc.qe.api.utils;
 
 import java.io.*;
 import java.util.List;

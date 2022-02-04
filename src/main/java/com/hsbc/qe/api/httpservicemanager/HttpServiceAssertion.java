@@ -1,4 +1,4 @@
-package com.hsbc.qe.httpservicemanager;
+package com.hsbc.qe.api.httpservicemanager;
 
 import com.google.common.base.Strings;
 import io.restassured.module.jsv.JsonSchemaValidator;

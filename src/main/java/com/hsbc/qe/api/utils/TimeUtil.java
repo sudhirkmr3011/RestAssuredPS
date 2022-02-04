@@ -1,4 +1,4 @@
-package com.hsbc.qe.utils;
+package com.hsbc.qe.api.utils;
 
 
 public class TimeUtil {
