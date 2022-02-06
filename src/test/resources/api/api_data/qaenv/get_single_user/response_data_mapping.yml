@@ -1,4 +1,4 @@
-GetSingleUserAPIExpectedData:
+GetSingleUserAPISelectedElementsExpectedData:
       'data.id': '2'
       'data.email': 'janet.weaver@reqres.in'
       'data.first_name': 'Janet'

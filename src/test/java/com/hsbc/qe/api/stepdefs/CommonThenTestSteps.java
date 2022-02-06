@@ -51,7 +51,7 @@ public class CommonThenTestSteps {
             });
   }
 
-  @And("I verify {string} in response")
+  @And("I verify selected elements {string} in response")
   public void iVerifyResponse(String expectedDataMapping) {
     Map<String, Object> expectedKeysWithValuesInAPIResponse = apiUtilManager.getExpectedResponseData(expectedDataMapping, (String) testManagerContext.getScenarioContext().getContext(ApiContext.API_NAME));
     expectedKeysWithValuesInAPIResponse.forEach((key, value) -> {

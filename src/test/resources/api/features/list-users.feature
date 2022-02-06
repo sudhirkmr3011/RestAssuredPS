@@ -8,7 +8,7 @@ Feature: List Users
     Then I get the response
     And I verify response code is 200
     And I verify the response schema
-    And I verify "GetSingleUserAPIExpectedData" in response
+    And I verify selected elements "GetSingleUserAPISelectedElementsExpectedData" in response
     Examples:
       | API       |
       | get_single_user |
