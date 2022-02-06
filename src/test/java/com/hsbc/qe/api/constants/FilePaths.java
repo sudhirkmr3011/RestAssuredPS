@@ -2,8 +2,11 @@ package com.hsbc.qe.api.constants;
 
 public class FilePaths {
   public static final String API_PATH_REQUEST_JSON =
-          "/api/apischema/env_type/api_path/request.json";
-  public static final String TEST_DATA_FILE_PATH = "api/apischema/env_type/api_path/testdata.yml";
-  public static final String SCHEMA_MAPPING =
-          "api/apischema/env_type/api_path/request_response_mapping.yml";
+          "/api/api_data/env_type/api_path/request.json";
+  public static final String TEST_DATA_FILE_PATH = "api/api_data/env_type/api_path/test_data.yml";
+  public static final String EXPECTED_RESPONSE_DATA_MAPPING =
+          "api/api_data/env_type/api_path/response_data_mapping.yml";
+
+  public static final String EXPECTED_RESPONSE_SCHEMA =
+          "api/api_data/env_type/api_path/response_schema.json";
 }

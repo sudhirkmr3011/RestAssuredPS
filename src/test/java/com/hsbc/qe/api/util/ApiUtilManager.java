@@ -96,6 +96,13 @@ public class ApiUtilManager {
     return getJsonNodeValue(defaults, Entity.BASE_PATH);
   }
 
+  public String getSchemaFilePath(TestManagerContext testManagerContext){
+    String api = (String) testManagerContext.getScenarioContext().getContext(ApiContext.API_NAME);
+    return FilePaths.EXPECTED_RESPONSE_SCHEMA
+            .replaceAll(Entity.API_PATH, api.toLowerCase())
+            .replaceAll(Entity.ENV_TYPE, env);
+  }
+
   public void setEntityHostURI(String api, TestManagerContext testManagerContext)
       throws IOException, URISyntaxException {
     ObjectMapper mapper = new ObjectMapper();
@@ -148,9 +155,9 @@ public class ApiUtilManager {
         defaults.get(Entity.PARAMS), new TypeReference<Map<String, String>>() {});
   }
 
-  public Map<String, Object> getSchema(String schemaKey, String api) {
+  public Map<String, Object> getExpectedResponseData(String schemaKey, String api) {
     String filePath =
-        FilePaths.SCHEMA_MAPPING
+        FilePaths.EXPECTED_RESPONSE_DATA_MAPPING
             .replaceAll(Entity.API_PATH, api.toLowerCase())
             .replaceAll(Entity.ENV_TYPE, env);
     YamlReaderUtils yamlReaderUtils = new YamlReaderUtils(ClassLoader.getSystemResourceAsStream(filePath));
@@ -158,13 +165,13 @@ public class ApiUtilManager {
   }
 
   public String getValue(String schemaKey, String api) {
-    String filePath = FilePaths.SCHEMA_MAPPING.replaceAll(Entity.API_PATH, api.toLowerCase()).replaceAll(Entity.ENV_TYPE, env);
+    String filePath = FilePaths.EXPECTED_RESPONSE_DATA_MAPPING.replaceAll(Entity.API_PATH, api.toLowerCase()).replaceAll(Entity.ENV_TYPE, env);
     YamlReaderUtils yamlReaderUtils = new YamlReaderUtils(ClassLoader.getSystemResourceAsStream(filePath));
     return (String) yamlReaderUtils.getValue(schemaKey);
   }
 
   public List<String> getListValue(String schemaKey, String api) {
-    String filePath = FilePaths.SCHEMA_MAPPING.replaceAll(Entity.API_PATH, api.toLowerCase()).replaceAll(Entity.ENV_TYPE, env);
+    String filePath = FilePaths.EXPECTED_RESPONSE_DATA_MAPPING.replaceAll(Entity.API_PATH, api.toLowerCase()).replaceAll(Entity.ENV_TYPE, env);
     YamlReaderUtils yamlReaderUtils = new YamlReaderUtils(ClassLoader.getSystemResourceAsStream(filePath));
     return (List<String>) yamlReaderUtils.getList(schemaKey);
   }

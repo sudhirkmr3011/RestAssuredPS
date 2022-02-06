@@ -30,7 +30,7 @@ public class CommonThenTestSteps {
   }
 
   @Then("I verify response code is {int}")
-  public void iVerifyReponseCodeIs(int statusCode) {
+  public void iVerifyResponseCodeIs(int statusCode) {
     httpServiceAssertion.statusCodeIs(statusCode);
   }
 
@@ -51,16 +51,20 @@ public class CommonThenTestSteps {
             });
   }
 
-  @And("I verify {string} in Response")
-  public void iVerifyResponse(String customer) {
-    String request = (String) testManagerContext.getScenarioContext().getContext(ApiContext.REQUEST_BODY);
-    Map<String, Object> map = apiUtilManager.getSchema(customer, (String) testManagerContext.getScenarioContext().getContext(ApiContext.API_NAME));
-    map.forEach((key, value) -> {
-        httpServiceAssertion.bodyContainsPropertyWithValue(key,
-                JsonUtil.getNodeValue(request, (String) value));
+  @And("I verify {string} in response")
+  public void iVerifyResponse(String expectedDataMapping) {
+    Map<String, Object> expectedKeysWithValuesInAPIResponse = apiUtilManager.getExpectedResponseData(expectedDataMapping, (String) testManagerContext.getScenarioContext().getContext(ApiContext.API_NAME));
+    expectedKeysWithValuesInAPIResponse.forEach((key, value) -> {
+      httpServiceAssertion.bodyContainsPropertyWithValue(key,
+              (String) value);
     });
   }
 
+  @Then("I verify the response schema")
+  public void i_verify_the_response_schema() {
+    String filePath = apiUtilManager.getSchemaFilePath(testManagerContext);
+    httpServiceAssertion.validateTheJsonResponseSchema(filePath);
+  }
 
   @And("I clear the request body")
   public void iClearTheRequestBody() {

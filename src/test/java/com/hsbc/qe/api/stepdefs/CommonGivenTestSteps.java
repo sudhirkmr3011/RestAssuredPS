@@ -43,7 +43,6 @@ public class CommonGivenTestSteps {
   public void iSetRequestBodyAs(String customer) throws IOException, URISyntaxException, ParseException {
     ApiUtilManager apiUtilManager = new ApiUtilManager();
     iSetRequestHeader();
-
     restRequestManager.setRequestBody(apiUtilManager.getRequestBody(testManagerContext, customer));
     testManagerContext.getScenarioContext().setContext(ApiContext.REQUEST_BODY, restRequestManager.getRequestBody());
   }

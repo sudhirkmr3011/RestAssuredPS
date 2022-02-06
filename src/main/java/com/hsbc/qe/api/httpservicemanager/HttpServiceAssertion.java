@@ -4,6 +4,7 @@ import com.google.common.base.Strings;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +40,7 @@ public class HttpServiceAssertion {
         JsonPath actualResponse = httpResponseManager.getResponse().jsonPath();
         String propertyValueFromResponse = null;
         if (!Strings.isNullOrEmpty(actualResponse.getString(propertyPath))) {
-            propertyValueFromResponse = actualResponse.getString(propertyPath).replaceAll("\\[", "").replaceAll("\\]", "");
+            propertyValueFromResponse = actualResponse.getString(propertyPath);
         }
         String assertionReason = String.format("Response field '%s' value is not equal to '%s' value.",propertyPath,expectedPropertyValue);
         assertThat(assertionReason, propertyValueFromResponse, is(equalTo(expectedPropertyValue)));
@@ -55,8 +56,16 @@ public class HttpServiceAssertion {
         assertThat("Key not found",!(Strings.isNullOrEmpty(propertyVal)));
     }
 
-    public void validateTheJsonResponseSchema(String schemaPath) {
-        httpResponseManager.getResponse().then().assertThat().body(JsonSchemaValidator.matchesJsonSchemaInClasspath(schemaPath));
+    public void validateTheJsonResponseSchema(String jsonSchemaPath) {
+        try {
+            JsonSchemaValidator validator = JsonSchemaValidator.matchesJsonSchemaInClasspath(jsonSchemaPath);
+            httpResponseManager.getResponse().then().assertThat().body(validator);
+            logger.info("json schema validation is OK");
+        } catch (Exception oEx) {
+            logger.error("json schema validation is NOT OK");
+            logger.debug("BasicChecks - validateSchema >> validation schema failed. -- exception: "
+                    + oEx.getLocalizedMessage());
+        }
     }
 
     public String getJsonPathValue(String jsonPath){
