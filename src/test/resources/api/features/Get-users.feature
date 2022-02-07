@@ -9,9 +9,10 @@ Feature: List Users
     And I verify response code is 200
     And I verify the response schema
     And I verify selected elements "GetSingleUserAPISelectedElementsExpectedData" in response
+    And I compare the expected response with the actual response with "<COMPARISON_MODE>"
     Examples:
-      | API       |
-      | get_single_user |
+      | API       | COMPARISON_MODE  |
+      | get_single_user |    LENIENT |
 
   @apitest
   Scenario Outline: Get all users

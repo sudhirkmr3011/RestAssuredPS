@@ -231,4 +231,9 @@ public class FileUtil {
     private static BufferedReader toBufferedReader(Reader reader) {
         return reader instanceof BufferedReader?(BufferedReader)reader:new BufferedReader(reader);
     }
+
+    public static String readFileAsString(String file)throws Exception
+    {
+        return new String(Files.readAllBytes(Paths.get(file)));
+    }
 }

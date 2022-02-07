@@ -1,5 +1,7 @@
 package com.hsbc.qe.api.stepdefs;
 
+import com.hsbc.qe.api.customexceptions.ContentNotFoundException;
+import com.hsbc.qe.api.customexceptions.InvalidFileFormatException;
 import com.hsbc.qe.api.enums.ApiContext;
 import com.hsbc.qe.api.httpservicemanager.HttpRequestManager;
 import com.hsbc.qe.api.httpservicemanager.HttpServiceAssertion;
@@ -9,6 +11,7 @@ import com.hsbc.qe.api.utils.JsonUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.Map;
@@ -65,6 +68,25 @@ public class CommonThenTestSteps {
     String filePath = apiUtilManager.getSchemaFilePath(testManagerContext);
     httpServiceAssertion.validateTheJsonResponseSchema(filePath);
   }
+
+  @Then("I compare the expected response with the actual response")
+  public void i_compare_the_expected_response_with_the_actual_response() throws Exception {
+    String expectedJSONResponseFilePath = "src/test/resources/" + apiUtilManager.getExpectedJSONResponseFilePath(testManagerContext);
+    try {
+      httpServiceAssertion.validateTheJSONResponse(expectedJSONResponseFilePath, "LENIENT");
+    } catch (JSONException | InvalidFileFormatException | ContentNotFoundException | IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Then("I compare the expected response with the actual response with {string}")
+  public void i_compare_the_expected_response_with_the_actual_response_with(String comparisonModeType) throws Exception {
+    String expectedJSONResponseFilePath = "src/test/resources/" + apiUtilManager.getExpectedJSONResponseFilePath(testManagerContext);
+    try {
+      httpServiceAssertion.validateTheJSONResponse(expectedJSONResponseFilePath, comparisonModeType);
+    } catch (JSONException | InvalidFileFormatException | ContentNotFoundException | IOException e) {
+      e.printStackTrace();
+    }  }
 
   @And("I clear the request body")
   public void iClearTheRequestBody() {

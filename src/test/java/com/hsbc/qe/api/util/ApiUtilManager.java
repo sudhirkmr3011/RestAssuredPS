@@ -103,6 +103,13 @@ public class ApiUtilManager {
             .replaceAll(Entity.ENV_TYPE, env);
   }
 
+  public String getExpectedJSONResponseFilePath(TestManagerContext testManagerContext){
+    String api = (String) testManagerContext.getScenarioContext().getContext(ApiContext.API_NAME);
+    return FilePaths.EXPECTED_JSON_RESPONSE
+            .replaceAll(Entity.API_PATH, api.toLowerCase())
+            .replaceAll(Entity.ENV_TYPE, env);
+  }
+
   public void setEntityHostURI(String api, TestManagerContext testManagerContext)
       throws IOException, URISyntaxException {
     ObjectMapper mapper = new ObjectMapper();
