@@ -1,15 +1,16 @@
-Feature: Create Users
+Feature: delete Users
 
   @apitest
-  Scenario Outline: Create User
+  Scenario Outline: Update User
     Given I have API "<API>"
     And I set content-type as JSON
     And I set request body for "<RequestBody>"
-    When I call method 'POST'
+    When I call method 'DELETE'
+    Then I verify response code is 204
     Then I get the response
-    Then I verify response code is 201
+    Then I verify response code is 200
     And I verify the response schema
     And I verify selected elements "GetAllAPISelectedElementsExpectedData" in response
     Examples:
       | API         | RequestBody |
-      | create_user | user_data   |
+      | update_users | updatedata   |

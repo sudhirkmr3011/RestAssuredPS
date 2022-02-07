@@ -1,0 +1,6 @@
+GetAllAPISelectedElementsExpectedData:
+
+
+    'data.id': '7'
+    'data.email':'michael.lawson@reqres.in'
+     'data.first_name: 'Michael'
