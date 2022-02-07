@@ -1,16 +1,24 @@
 package com.hsbc.qe.api.httpservicemanager;
 
 import com.google.common.base.Strings;
+import com.hsbc.qe.api.customexceptions.ContentNotFoundException;
+import com.hsbc.qe.api.customexceptions.InvalidFileFormatException;
+import com.hsbc.qe.api.utils.FileUtil;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.nullValue;
+
+import org.json.JSONException;
+import org.skyscreamer.jsonassert.JSONAssert;
+import org.skyscreamer.jsonassert.JSONCompareMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -65,6 +73,37 @@ public class HttpServiceAssertion {
             logger.error("json schema validation is NOT OK");
             logger.debug("BasicChecks - validateSchema >> validation schema failed. -- exception: "
                     + oEx.getLocalizedMessage());
+        }
+    }
+
+    /**
+     * Compare two JSON strings
+     * JSONassert Java library helps to assert JSON equality effectively.
+     * Under the covers, JSONassert converts your string into a JSON object and compares the logical structure and data with the actual JSON.
+     * When strict is set to false (recommended), it forgives reordering data and extending results (as long as all the expected elements are there), making tests less brittle.
+     * @see <https://github.com/skyscreamer/JSONassert>
+     * @param expectedResponseFilePath exptected JSON response file path
+     * @param comparisonModeType select the type of the comparison to assert the data
+     * @throws Exception
+     */
+    public void validateTheJSONResponse(String expectedResponseFilePath, String comparisonModeType) throws Exception {
+        String actualResponse = httpResponseManager.getResponse().asString();
+        String expectedResponse = FileUtil.readFileAsString(expectedResponseFilePath);
+        switch (comparisonModeType.toUpperCase()) {
+            case "LENIENT":
+                JSONAssert.assertEquals(expectedResponse, actualResponse, JSONCompareMode.LENIENT);
+                break;
+            case "STRICT":
+                JSONAssert.assertEquals(expectedResponse, actualResponse, JSONCompareMode.STRICT);
+                break;
+            case "STRICT_ORDER":
+                JSONAssert.assertEquals(expectedResponse, actualResponse, JSONCompareMode.STRICT_ORDER);
+                break;
+            case "NON_EXTENSIBLE":
+                JSONAssert.assertEquals(expectedResponse, actualResponse, JSONCompareMode.NON_EXTENSIBLE);
+                break;
+            default:
+                throw new Exception("Invalid comparison mode: " + comparisonModeType);
         }
     }
 
