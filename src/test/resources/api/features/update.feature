@@ -1,6 +1,6 @@
 Feature: Update Users
 
-  @apitest
+  @apitest  @updateuser
   Scenario Outline: Update User
     Given I have API "<API>"
     And I set content-type as JSON
@@ -9,7 +9,9 @@ Feature: Update Users
     Then I get the response
     Then I verify response code is 200
     And I verify the response schema
-    And I verify selected elements "GetAllAPISelectedElementsExpectedData" in response
+    And I verify selected elements "UpdateUserAPISelectedElementsExpectedData" in response
+    And I compare the expected response with the actual response with "<COMPARISON_MODE>"
+
     Examples:
-      | API         | RequestBody |
-      | update_users | updatedata  |
+      | API         | RequestBody |COMPARISON_MODE|
+      | update_users | updateUsers  |      LENIENT       |

@@ -1,43 +1,55 @@
 Feature: List Users
 
   @apitest
-  Scenario Outline: Get single users
+  Scenario Outline: Get users Status
     Given I have API "<API>"
     And I set content-type as JSON
     When I call method 'GET'
     Then I get the response
-    And I verify response code is 200
+    Then I verify response code is "<Status_Code>"
+    Examples:
+      | API         |       Status_Code|
+      | get_single_user |     200     |
+      | get_all_users |        200     |
+      | user_not_found|    404    |
+
+
+  @apitest
+  Scenario Outline: get user element comparison
+    Given I have API "<API>"
+    And I set content-type as JSON
+    When I call method 'GET'
+    And I verify selected elements "<keysValue>" in response
+    Examples:
+      | API         |  keysValue|
+      | get_single_user |GetSingleUserAPISelectedElementsExpectedData|
+      |get_all_users|GetAllUserAPISelectedElementsExpectedData|
+     # |user_not_found| ResourceDatanotfound|
+
+
+
+  @apitest
+  Scenario Outline:Get Schema comparison
+    Given I have API "<API>"
+    And I set content-type as JSON
+    When I call method 'GET'
     And I verify the response schema
-    And I verify selected elements "GetSingleUserAPISelectedElementsExpectedData" in response
+    Examples:
+      | API         |
+      | get_single_user |
+      |get_all_users|
+      #|user_not_found |
+
+
+  @apitest
+  Scenario Outline:Get Response comparison
+    Given I have API "<API>"
+    And I set content-type as JSON
+    When I call method 'GET'
     And I compare the expected response with the actual response with "<COMPARISON_MODE>"
     Examples:
       | API       | COMPARISON_MODE  |
       | get_single_user |    LENIENT |
+      | get_all_users |    LENIENT |
+    # | user_not_found |    LENIENT |
 
-  @apitest
-  Scenario Outline: Get all users
-    Given I have API "<API>"
-    And I set content-type as JSON
-    When I call method 'GET'
-    Then I get the response
-    Then I verify response code is 200
-    And I verify the response schema
-    And I verify selected elements "GetAllAPISelectedElementsExpectedData" in response
-
-    Examples:
-      | API       |
-      | get_all_users |
-
-
-  @apitest
-  Scenario Outline:  Resource not found
-    Given I have API "<API>"
-    And I set content-type as JSON
-    When I call method 'GET'
-    Then I get the response
-    Then I verify response code is 404
-    And I verify the response schema
-    And I verify selected elements "ResourceDatanotfound" in response
-    Examples:
-      | API       |
-      | resource_not_found |

@@ -1,5 +1,5 @@
 {
-  "base_path": "{{context_path}}/users?page=2",
+  "base_path": "{{context_path}}/users/2",
   "header": {
     "Content-Type": "application/json"
   },
