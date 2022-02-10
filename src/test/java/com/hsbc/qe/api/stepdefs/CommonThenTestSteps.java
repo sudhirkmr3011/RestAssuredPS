@@ -37,6 +37,14 @@ public class CommonThenTestSteps {
     httpServiceAssertion.statusCodeIs(statusCode);
   }
 
+  @Then("I verify response code is {string}")
+  public void iVerifyResponseCodeIs(String Status_Code) {
+    httpServiceAssertion.statusCodeIs(Integer.parseInt(Status_Code));
+  }
+
+
+
+
   @And("I verify fields in response")
   public void iVerifyFieldsInResponse(DataTable table) {
     table
@@ -103,5 +111,6 @@ public class CommonThenTestSteps {
   public void iClearTheQueryParameters() {
     restRequestManager.clearRequestParam();
   }
+
 
 }
