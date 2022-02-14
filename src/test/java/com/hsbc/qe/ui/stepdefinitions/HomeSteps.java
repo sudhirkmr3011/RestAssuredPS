@@ -8,13 +8,12 @@ import io.cucumber.java.en.When;
 public class HomeSteps {
 
     TestContext testContext;
+    HomePage homePage;
 
     public HomeSteps(TestContext context) {
         testContext = context;
         homePage = testContext.getPageObjectManager().getHomePage();
     }
-
-    HomePage homePage;
 
     @Given("User has launched the webpage")
     public void user_has_launched_the_webpage() {

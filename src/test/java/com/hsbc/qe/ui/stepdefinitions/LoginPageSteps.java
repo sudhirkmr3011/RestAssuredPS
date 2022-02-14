@@ -2,12 +2,11 @@ package com.hsbc.qe.ui.stepdefinitions;
 
 import com.hsbc.qe.ui.page_objects.LoginPage;
 import com.hsbc.qe.ui.page_objects.TestContext;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static com.hsbc.qe.ui.common.DriverSetup.configuration;
+import static com.hsbc.qe.ui.common.BaseDriverSetup.configuration;
 
 public class LoginPageSteps {
 
@@ -23,6 +22,7 @@ public class LoginPageSteps {
     public void i_navigated_to_the_login_page() {
         loginPage.navigate(configuration.baseUrl());
     }
+
     @Given("I enter the username as {string}")
     public void i_enter_the_username_as(String username) {
         loginPage.enterUserName(username);
@@ -39,6 +39,7 @@ public class LoginPageSteps {
 
     @Then("I should navigated to the home page")
     public void i_should_navigated_to_the_home_page() {
+
     }
 
 }

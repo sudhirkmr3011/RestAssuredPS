@@ -5,13 +5,13 @@ import com.hsbc.qe.api.constants.ConfigConstants;
 import org.assertj.core.api.SoftAssertions;
 
 public class TestManagerContext {
-  private HttpRequestManager httpRequestManager;
-  private HttpServiceAssertion httpServiceAssertion;
-  private HttpResponseManager httpResponseManager;
-  private RestRequestManager restRequestManager;
-  private TestScenarioContext testScenarioContext;
+  private final HttpRequestManager httpRequestManager;
+  private final HttpServiceAssertion httpServiceAssertion;
+  private final HttpResponseManager httpResponseManager;
+  private final RestRequestManager restRequestManager;
+  private final TestScenarioContext testScenarioContext;
   public ConfigManager configManager;
-  private SoftAssertions softAssertions;
+  private final SoftAssertions softAssertions;
 
   public TestManagerContext() {
     configManager = new ConfigManager();

@@ -1,6 +1,6 @@
 package com.hsbc.qe.ui.page_objects;
 
-import com.hsbc.qe.ui.common.DriverHelper;
+import com.hsbc.qe.ui.common.driver_helpers.DriverHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,15 +26,15 @@ public class LoginPage extends DriverHelper {
 
     public void enterUserName(String email) {
         explicitlyWaitForElement(driver, username);
-        type(driver, username, email);
+        enterValue(username, email);
     }
 
     public void enterPassword(String password) {
         explicitlyWaitForElement(driver, this.password);
-        type(driver, this.password, password);
+        enterValue(this.password, password);
     }
 
     public void clickLoginButton() {
-        click(driver, loginButton);
+        click(loginButton);
     }
 }
