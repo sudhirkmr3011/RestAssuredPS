@@ -1,14 +1,10 @@
 package com.hsbc.qe.api.httpservicemanager;
 
 import com.google.common.base.Strings;
-import com.hsbc.qe.api.customexceptions.ContentNotFoundException;
-import com.hsbc.qe.api.customexceptions.InvalidFileFormatException;
-import com.hsbc.qe.api.utils.FileUtil;
+import com.hsbc.qe.common.utils.FileUtil;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.path.json.JsonPath;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 

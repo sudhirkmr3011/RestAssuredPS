@@ -7,7 +7,7 @@ import com.hsbc.qe.api.httpservicemanager.HttpRequestManager;
 import com.hsbc.qe.api.httpservicemanager.HttpServiceAssertion;
 import com.hsbc.qe.api.httpservicemanager.RestRequestManager;
 import com.hsbc.qe.api.util.ApiUtilManager;
-import com.hsbc.qe.api.utils.JsonUtil;
+import com.hsbc.qe.common.utils.JsonUtil;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;

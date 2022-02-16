@@ -2,7 +2,7 @@ package com.hsbc.qe.api.httpservicemanager;
 
 import com.google.common.base.Strings;
 import com.hsbc.qe.api.constants.ConfigConstants;
-import com.hsbc.qe.api.utils.YamlReaderUtils;
+import com.hsbc.qe.common.utils.YamlReaderUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

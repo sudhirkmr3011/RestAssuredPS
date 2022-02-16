@@ -1,4 +1,4 @@
-package com.hsbc.qe.api.utils;
+package com.hsbc.qe.common.utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

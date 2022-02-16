@@ -11,8 +11,8 @@ import com.hsbc.qe.api.enums.ApiContext;
 import com.hsbc.qe.api.stepdefs.TestManagerContext;
 import com.hsbc.qe.constants.Entity;
 import com.hsbc.qe.api.constants.FilePaths;
-import com.hsbc.qe.api.utils.DateUtils;
-import com.hsbc.qe.api.utils.YamlReaderUtils;
+import com.hsbc.qe.common.utils.DateUtils;
+import com.hsbc.qe.common.utils.YamlReaderUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

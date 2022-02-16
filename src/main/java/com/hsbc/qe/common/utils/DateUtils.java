@@ -1,4 +1,4 @@
-package com.hsbc.qe.api.utils;
+package com.hsbc.qe.common.utils;
 
 import org.apache.commons.lang3.StringUtils;
 

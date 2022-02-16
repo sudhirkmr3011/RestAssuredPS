@@ -1,8 +1,8 @@
-package com.hsbc.qe.ui.utilities;
+package com.hsbc.qe.common.utils;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 
-public class GeneralUtilities {
+public class GeneralUtils {
 
     public static String generateRandomHexToken(int byteLength) {
         SecureRandom secureRandom = new SecureRandom();

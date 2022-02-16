@@ -1,17 +1,13 @@
 package com.hsbc.qe.ui.page_objects;
 
-import com.hsbc.qe.ui.common.driver_helpers.DriverHelper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage extends DriverHelper {
-    WebDriver driver;
+public class HomePage extends AbstractPageObject {
 
-    public HomePage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public HomePage() {
     }
 
     public final String acceptCookie = "//button[@title='Akkoord']";
@@ -24,13 +20,6 @@ public class HomePage extends DriverHelper {
 
     public final String loginButton = "tm-call2action";
     @FindBy(className = loginButton)
+
     public WebElement loginButtonElement;
-
-    public void navigateToHomePage() {
-        navigate(configuration.baseUrl());
-    }
-
-    public void navigateToLoginPage(){
-        navigate(configuration.baseUrl());
-    }
 }
