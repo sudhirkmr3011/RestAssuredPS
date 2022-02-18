@@ -1,7 +1,6 @@
 package com.hsbc.qe.ui.stepdefinitions;
 
-import com.hsbc.qe.ui.reporter.AllureManager;
-import com.hsbc.qe.ui.webdriver.DriverManager;
+import com.hsbc.qe.ui.context.TestContext;
 import com.hsbc.qe.ui.webdriver.TargetWebDriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,23 +13,32 @@ import static com.hsbc.qe.ui.config.ConfigurationManager.getConfiguration;
 public class Hooks {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Hooks.class);
+    WebDriver driver;
+    TestContext testContext;
+    public Hooks(TestContext testContext){
+        this.testContext = testContext;
+        driver = testContext.getDriverManager().getDriver();
+    }
 
-    @Before
-    public void preCondition() {
-//        AllureManager.setAllureEnvironmentInformation();
-        WebDriver driver = new TargetWebDriverFactory().createInstance(getConfiguration().browser());
-        DriverManager.addDriver(driver);
-        DriverManager.getDriver().get(getConfiguration().url());
+@Before
+public void preCondition() {
+//        AllureManager.setAllureEnvironmentInformation()
+        driver = new TargetWebDriverFactory().createInstance(getConfiguration().browser());
+        testContext.getDriverManager().addDriver(driver);
+        if(testContext.getDriverManager().getDriver() == null){
+            System.out.println("Why this is null");
+        }
+        testContext.getDriverManager().getDriver().get(getConfiguration().url());
     }
 
     @After
     public void postCondition() {
 //        failTest();
 //        DriverManager.quitDriver();
-        DriverManager.destroyDriver();
+        testContext.getDriverManager().destroyDriver();
     }
 
-    private void failTest() {
-        AllureManager.takeScreenshotToAttachOnAllureReport();
-    }
+//    private void failTest() {
+//        AllureManager.takeScreenshotToAttachOnAllureReport();
+//    }
 }

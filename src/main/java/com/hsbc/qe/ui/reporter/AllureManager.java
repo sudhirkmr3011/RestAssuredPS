@@ -2,18 +2,27 @@ package com.hsbc.qe.ui.reporter;
 
 import com.github.automatedowl.tools.AllureEnvironmentWriter;
 import com.google.common.collect.ImmutableMap;
+import com.hsbc.qe.ui.context.TestContext;
 import com.hsbc.qe.ui.webdriver.DriverManager;
 import io.qameta.allure.Attachment;
+import org.apache.xmlbeans.impl.xb.xsdschema.All;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 
 import static com.hsbc.qe.ui.config.ConfigurationManager.getConfiguration;
 import static org.openqa.selenium.OutputType.BYTES;
 
 public class AllureManager {
 
+    TestContext testContext;
 
-    private AllureManager() {
+    WebDriver driver;
+
+    public AllureManager(TestContext context){
+        this.testContext = context;
+        driver = testContext.getDriverManager().getDriver();
     }
+
     public static void setAllureEnvironmentInformation() {
         AllureEnvironmentWriter.allureEnvironmentWriter(
                 ImmutableMap.<String, String>builder().
@@ -28,13 +37,13 @@ public class AllureManager {
                         build());
     }
 
-    @Attachment(value = "Failed test screenshot", type = "image/png")
-    public static byte[] takeScreenshotToAttachOnAllureReport() {
-        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(BYTES);
-    }
+//    @Attachment(value = "Failed test screenshot", type = "image/png")
+//    public static byte[] takeScreenshotToAttachOnAllureReport() {
+//        return ((TakesScreenshot) d).getScreenshotAs(BYTES);
+//    }
 
-    @Attachment(value = "Browser information", type = "text/plain")
-    public static String addBrowserInformationOnAllureReport() {
-        return DriverManager.getInfo();
-    }
+//    @Attachment(value = "Browser information", type = "text/plain")
+//    public static String addBrowserInformationOnAllureReport() {
+//        return .getInfo();
+//    }
 }

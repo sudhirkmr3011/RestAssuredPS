@@ -12,39 +12,39 @@ public class DriverManager {
     private static final ThreadLocal<WebDriver> driver = new ThreadLocal<>();
     private static final List<WebDriver> storedDrivers = new ArrayList<>();
 
-    private DriverManager() {}
+    public DriverManager() {}
 
-    public static WebDriver getDriver() {
+    public WebDriver getDriver() {
         return driver.get();
     }
 
-    private static void setDriver(WebDriver driver) {
+    private void setDriver(WebDriver driver) {
         DriverManager.driver.set(driver);
     }
 
-    public static void addDriver(WebDriver driver) {
+    public void addDriver(WebDriver driver) {
         storedDrivers.add(driver);
         DriverManager.driver.set(driver);
     }
 
-    private static void quitDriver() {
+    private void quitDriver() {
         DriverManager.driver.get().quit();
         driver.remove();
     }
 
-    public static void destroyDriver() {
+    public void destroyDriver() {
         for (WebDriver driver : storedDrivers) {
             if (driver != null) {
                 driver.quit();
             }
         }
     }
-    public static String getInfo() {
-        Capabilities cap = ((RemoteWebDriver) DriverManager.getDriver()).getCapabilities();
-        String browserName = cap.getBrowserName();
-        String platform = cap.getPlatformName().toString();
-        String version = cap.getBrowserVersion();
-        return String.format("browser: %s v: %s platform: %s", browserName, version, platform);
-    }
 
+//    public String getInfo() {
+//        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+//        String browserName = cap.getBrowserName();
+//        String platform = cap.getPlatformName().toString();
+//        String version = cap.getBrowserVersion();
+//        return String.format("browser: %s v: %s platform: %s", browserName, version, platform);
+//    }
 }

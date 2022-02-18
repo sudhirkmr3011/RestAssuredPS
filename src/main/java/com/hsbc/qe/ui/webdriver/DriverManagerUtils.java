@@ -25,8 +25,8 @@ public class DriverManagerUtils {
     public static final int EXPLICIT_TIMEOUT = 5;
     WebDriver driver;
 
-    public DriverManagerUtils() {
-        driver = DriverManager.getDriver();
+    public DriverManagerUtils(WebDriver driver) {
+        this.driver = driver;
     }
 
     public void navigateTo(String url) {
@@ -125,13 +125,18 @@ public class DriverManagerUtils {
         jse.executeScript("arguments[0].scrollIntoView();", webElement);
     }
 
-    public void switchToFrame(WebElement webElement) throws Exception {
+    public void switchToFrame(WebElement webElement) {
         LOGGER.info("Switching to frame: " + webElement.getTagName());
         driver.switchTo().frame(webElement);
     }
 
     public void switchToParentFrame() {
         LOGGER.info("Switching to parent frame");
+        driver.switchTo().parentFrame();
+    }
+
+    public void switchToDefaultContent() {
+        LOGGER.info("Switching to default content");
         driver.switchTo().parentFrame();
     }
 
@@ -218,6 +223,20 @@ public class DriverManagerUtils {
         return foundLocator;
     }
 
+    public String getAlertText()
+    {
+        String alertMessage = null;
+        try{
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_TIMEOUT));
+            Alert alert = wait.until(ExpectedConditions.alertIsPresent());
+            alertMessage = alert.getText();
+            LOGGER.info("The alert was accepted successfully.");
+        }catch(Throwable e){
+            LOGGER.error("Error came while waiting for the alert popup. "+e.getMessage());
+        }
+        return alertMessage;
+    }
+
     public void acceptTheAlert()
     {
         try{
@@ -242,6 +261,27 @@ public class DriverManagerUtils {
         }
     }
 
+    /**
+     * Checks if checkbox is checked.
+     * @param webElement locator of the web element
+     * @return Returns true if the checkbox is checked.
+     */
+    public boolean isElementSelected(WebElement webElement) {
+        boolean isSelected = webElement.isSelected();
+        LOGGER.info("Checked: " + isSelected);
+        return isSelected;
+    }
+
+    /**
+     * Deselects a element only if its selected.
+     * @param webElement locator of the web element
+     */
+    public static void unselectCheckbox(WebElement webElement) {
+        LOGGER.info("CALLED: clickCheckbox()");
+        if (webElement.isSelected()) {
+            webElement.click();
+        }
+    }
 
     /**
      * Function to wait for frame and switch to it
@@ -265,7 +305,7 @@ public class DriverManagerUtils {
      * @param url Url to navigate
      */
     public void navigateToURL(String url) {
-        DriverManager.getDriver().get(url);
+        driver.get(url);
     }
 
     /**
@@ -275,7 +315,7 @@ public class DriverManagerUtils {
      * @param locator web element to identify
      */
     private void handleException(TimeoutException e, WebElement locator) {
-        throw new RuntimeException(" " + locator.toString() + " " + TIME_OUT_IN_SECONDS + " " + DriverManager.getDriver().getCurrentUrl());
+        throw new RuntimeException(" " + locator.toString() + " " + TIME_OUT_IN_SECONDS + " " + driver.getCurrentUrl());
     }
 
 
@@ -285,7 +325,7 @@ public class DriverManagerUtils {
      * @param expected Expected Title of web page
      */
     public void validateTitle(String expected) {
-        String actualText = DriverManager.getDriver().getTitle();
+        String actualText = driver.getTitle();
         Assert.assertEquals(actualText, expected);
     }
 
@@ -308,7 +348,7 @@ public class DriverManagerUtils {
     }
 
     protected void handleException(NoSuchElementException e) {
-        Assert.fail(e.getMessage() + " on page " + DriverManager.getDriver().getCurrentUrl());
+        Assert.fail(e.getMessage() + " on page " + driver.getCurrentUrl());
     }
 
 
@@ -343,8 +383,7 @@ public class DriverManagerUtils {
     /**
      * Function to switch to default content/window
      */
-    public void switchToDefaultWindow() {
-        DriverManager.getDriver().switchTo().defaultContent();
+    public void switchToDefaultWindow() {driver.switchTo().defaultContent();
     }
 
 
@@ -378,20 +417,30 @@ public class DriverManagerUtils {
     }
     
     /**
-     * @param: String locator. This method verifies if the element is visible.
+     * @param: String locator. This method verifies if the element is displayed.
      */
     public boolean isElementDisplayed(WebElement element) {
         boolean isDisplayed;
         try {
             LOGGER.info(String.format("Waiting Element: %s", element.getTagName()));
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(EXPLICIT_TIMEOUT));
-            isDisplayed = wait.until(ExpectedConditions.presenceOfElementLocated((By) element)).isDisplayed();
+            isDisplayed = wait.until(ExpectedConditions.visibilityOfElementLocated((By) element)).isDisplayed();
         }catch (NoSuchElementException | TimeoutException e){
             isDisplayed = false;
             LOGGER.info("Element {} not found", element.getTagName());
         }
         LOGGER.info(String.format("%s visibility is: %s", element, isDisplayed));
         return isDisplayed;
+    }
+
+    /** Method to return element status - enabled?
+     * @param webElement : Web element to check
+     * @return Boolean
+     */
+    public boolean isElementEnabled(WebElement webElement)
+    {
+        isElementDisplayed(webElement);
+        return webElement.isEnabled();
     }
 
     public void selectOptionDropdownByText(WebElement element, String option) throws Exception
