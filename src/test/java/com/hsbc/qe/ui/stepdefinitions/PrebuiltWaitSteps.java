@@ -4,7 +4,7 @@ import com.hsbc.qe.ui.context.TestContext;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebDriver;
 
-public class PrebuiltWaitSteps extends Base {
+public class PrebuiltWaitSteps extends InitSetup {
 
     WebDriver driver;
 

@@ -8,7 +8,7 @@ import io.cucumber.java.en.When;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PrebuiltBrowserSteps extends Base {
+public class PrebuiltBrowserSteps extends InitSetup {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PrebuiltBrowserSteps.class);
     TestContext testContext;

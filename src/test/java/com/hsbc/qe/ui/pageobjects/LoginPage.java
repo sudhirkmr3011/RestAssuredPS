@@ -7,17 +7,14 @@ import org.openqa.selenium.support.How;
 
 public class LoginPage extends AbstractPageObject {
 
-    @FindBy(how = How.ID, using = "user-name")
+    @FindBy(id = "user-name")
     public static WebElement usernameInput;
 
-//    @FindBy(id = "user-name")
-//    public WebElement usernameInput;
-
     @FindBy(id = "password")
-    public WebElement passwordInput;
+    public static WebElement passwordInput;
 
     @FindBy(id = "login-button")
-    public WebElement loginButton;
+    public static WebElement loginButton;
 
     public void enterUserName(String email) {
         this.usernameInput.sendKeys(email);

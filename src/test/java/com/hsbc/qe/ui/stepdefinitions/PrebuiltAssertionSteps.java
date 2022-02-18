@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-public class PrebuiltAssertionSteps extends Base {
+public class PrebuiltAssertionSteps extends InitSetup {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PrebuiltAssertionSteps.class);
 
@@ -46,8 +46,8 @@ public class PrebuiltAssertionSteps extends Base {
     /**
      * Step to check that the given text exactly matches the page title
      */
-    @Given("I verify that the (.*) text exactly matches the title of the (.*) page")
-    public void iVerifyThatTheTextMatchesTheTitleOhePage(String ePageTitleText, String pageClassName) {
+    @Given("I verify that the {string} text exactly matches the current page title")
+    public void iVerifyThatTheTextMatchesTheTitleOhePage(String ePageTitleText) {
         String aPageTitle = driverManagerUtils.getPageTitle();
         assertThat("Page tiles are not matching", aPageTitle, equalTo(ePageTitleText));
     }
@@ -78,7 +78,7 @@ public class PrebuiltAssertionSteps extends Base {
     /**
      * Step to check that the element should be displayed or not on the page
      */
-    @Then("^I verify that the (.+) element should\\s*((?:not)?)\\s+be displayed (.*) on the page$")
+    @Then("^I verify that the (.+) element should\\s*((?:not)?)\\s+be displayed on the (.+) page$")
     public void verifyElementDisplayedOrNotDisplayed(String elementName, String elementState, String pageClassName) {
         boolean isElementDisplayed = driverManagerUtils.isElementDisplayed(loadWebElement(elementName, pageClassName));
         if(elementState.isEmpty()){

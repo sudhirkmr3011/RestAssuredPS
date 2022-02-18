@@ -10,21 +10,24 @@ import org.slf4j.LoggerFactory;
 
 import static com.hsbc.qe.ui.config.ConfigurationManager.getConfiguration;
 
-public class Hooks {
+public class Hooks extends InitSetup {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Hooks.class);
     WebDriver driver;
     TestContext testContext;
+
     public Hooks(TestContext testContext){
+        super(testContext);
         this.testContext = testContext;
         driver = testContext.getDriverManager().getDriver();
     }
 
-@Before
-public void preCondition() {
+    @Before
+    public void preCondition() {
 //        AllureManager.setAllureEnvironmentInformation()
         driver = new TargetWebDriverFactory().createInstance(getConfiguration().browser());
         testContext.getDriverManager().addDriver(driver);
+        testContext.getDriverManager().setDriver(driver);
         if(testContext.getDriverManager().getDriver() == null){
             System.out.println("Why this is null");
         }
