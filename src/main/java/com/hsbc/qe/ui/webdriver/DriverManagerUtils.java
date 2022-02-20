@@ -405,6 +405,22 @@ public class DriverManagerUtils {
         }
     }
 
+    /**
+     * Function to clear the value from the text box
+     *
+     * @param driver Webdriver object
+     * @param ele    By object to identify
+     */
+    public void clearText(WebDriver driver, WebElement ele) {
+        try {
+            findElementAndHighlight(driver, ele, "red");
+            ele.click();
+            ele.clear();
+        } catch (NoSuchElementException e) {
+            handleException(e);
+        }
+    }
+
     public String getElementText(WebDriver driver, WebElement ele) {
         String elementText = null;
         try {

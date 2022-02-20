@@ -12,8 +12,9 @@ import java.util.TimeZone;
 
 public class DateUtils {
 
-    private static String dateFormat_YYYYMMDD = "yyyy-MM-dd";
-    private static TimeZone timeZone = TimeZone.getTimeZone("UTC");
+    private static final String dateFormat_YYYYMMDD = "yyyy-MM-dd";
+    private static final String dateFormat = "02/20/2022";
+    private static final TimeZone timeZone = TimeZone.getTimeZone("UTC");
 
 
     public static String getTodayDateInString() throws ParseException {
@@ -23,9 +24,20 @@ public class DateUtils {
         return (dtFormat.format((dtFormat.parse(String.valueOf(date)))));
     }
 
-    public static Date getTodayDate() throws ParseException {
-        Date date = convertStringToDate(getTodayDateInString(), dateFormat_YYYYMMDD);
-        return date;
+    public static String getDate(int noOfDays, String dateFormatPattern) {
+        String selectedDate;
+        SimpleDateFormat dmyFormat = new SimpleDateFormat(dateFormatPattern);
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, noOfDays);
+        date = cal.getTime();
+        selectedDate = dmyFormat.format(date);
+        return selectedDate;
+    }
+
+    public static String getTodayDate(String dateFormatPattern) {
+        return getDate(0, dateFormatPattern);
     }
 
     public static Date convertStringToDate(String date, String dateFormat) {
