@@ -6,11 +6,13 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @Test
-@CucumberOptions(
-        features = "src/test/resources/ui/features",
-        glue = {"stepdefinitions"},
-        plugin = {"pretty", "html:Reports/CucumberReport/cucumber-reports.html", "io.qameta.allure.cucumber6jvm.AllureCucumber7Jvm"}
-)
+@CucumberOptions
+        (plugin = {"io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm", "pretty", "json:target/cucumber-report/report.json"},
+                monochrome = true,
+                features = "src/test/resources/ui/features",
+                glue = {"com.hsbc.qe.ui.stepdefinitions"},
+        tags = "@excel")
+
 public class RunUIParallelTest extends AbstractTestNGCucumberTests {
     @Override
     @DataProvider(parallel = true)

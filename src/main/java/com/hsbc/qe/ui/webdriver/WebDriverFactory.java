@@ -28,7 +28,6 @@ public enum WebDriverFactory {
         @Override
         public WebDriver createDriver() {
             WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-
             return new ChromeDriver(getOptions());
         }
 
@@ -39,7 +38,6 @@ public enum WebDriverFactory {
             chromeOptions.addArguments("--disable-infobars");
             chromeOptions.addArguments("--disable-notifications");
             chromeOptions.setHeadless(getConfiguration().headless());
-
             return chromeOptions;
         }
     }, FIREFOX {

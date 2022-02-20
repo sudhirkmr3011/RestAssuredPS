@@ -19,6 +19,7 @@
     <logback.version>1.2.3</logback.version>
     <slf4j.version>1.7.26</slf4j.version>
     <owner.version>1.0.12</owner.version>
+    <allure-testng.version>2.17.2</allure-testng.version>
   </properties>
 
   <dependencies>
@@ -64,7 +65,13 @@
     <dependency>
       <groupId>org.apache.poi</groupId>
       <artifactId>poi-ooxml</artifactId>
-      <version>3.11</version>
+      <version>4.1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>4.1.2</version>
     </dependency>
 
     <dependency>
@@ -83,6 +90,25 @@
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
       <version>${cucumber.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure-testng.version}</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber7-jvm -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-cucumber6-jvm</artifactId>
+      <version>${allure-testng.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-attachments</artifactId>
+      <version>${allure-testng.version}</version>
     </dependency>
 
     <dependency>

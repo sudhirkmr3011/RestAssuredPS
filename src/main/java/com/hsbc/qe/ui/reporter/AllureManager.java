@@ -16,11 +16,8 @@ public class AllureManager {
 
     TestContext testContext;
 
-    WebDriver driver;
-
     public AllureManager(TestContext context){
         this.testContext = context;
-        driver = testContext.getDriverManager().getDriver();
     }
 
     public static void setAllureEnvironmentInformation() {
@@ -37,13 +34,13 @@ public class AllureManager {
                         build());
     }
 
-//    @Attachment(value = "Failed test screenshot", type = "image/png")
-//    public static byte[] takeScreenshotToAttachOnAllureReport() {
-//        return ((TakesScreenshot) d).getScreenshotAs(BYTES);
-//    }
+    @Attachment(value = "Failed test screenshot", type = "image/png")
+    public byte[] takeScreenshotToAttachOnAllureReport() {
+        return ((TakesScreenshot) testContext.getDriverManager().getDriver()).getScreenshotAs(BYTES);
+    }
 
-//    @Attachment(value = "Browser information", type = "text/plain")
-//    public static String addBrowserInformationOnAllureReport() {
-//        return .getInfo();
-//    }
+    @Attachment(value = "Browser information", type = "text/plain")
+    public String addBrowserInformationOnAllureReport() {
+        return testContext.getDriverManager().getInfo();
+    }
 }

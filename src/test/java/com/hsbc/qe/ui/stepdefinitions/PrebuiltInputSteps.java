@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PrebuiltInputSteps extends InitSetup {
+public class PrebuiltInputSteps extends BaseSetup {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PrebuiltBrowserSteps.class);
     TestContext testContext;

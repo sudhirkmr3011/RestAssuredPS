@@ -27,12 +27,12 @@ public class DriverManager {
         DriverManager.driver.set(driver);
     }
 
-    private void quitDriver() {
+    public static void quitDriver() {
         DriverManager.driver.get().quit();
         driver.remove();
     }
 
-    public void destroyDriver() {
+    public static void destroyDriver() {
         for (WebDriver driver : storedDrivers) {
             if (driver != null) {
                 driver.quit();
@@ -40,11 +40,11 @@ public class DriverManager {
         }
     }
 
-//    public String getInfo() {
-//        Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
-//        String browserName = cap.getBrowserName();
-//        String platform = cap.getPlatformName().toString();
-//        String version = cap.getBrowserVersion();
-//        return String.format("browser: %s v: %s platform: %s", browserName, version, platform);
-//    }
+    public String getInfo() {
+        Capabilities cap = ((RemoteWebDriver) getDriver()).getCapabilities();
+        String browserName = cap.getBrowserName();
+        String platform = cap.getPlatformName().toString();
+        String version = cap.getBrowserVersion();
+        return String.format("browser: %s v: %s platform: %s", browserName, version, platform);
+    }
 }

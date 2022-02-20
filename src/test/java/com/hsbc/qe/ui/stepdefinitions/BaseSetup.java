@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 import java.lang.reflect.Field;
 import java.sql.Driver;
 
-public class InitSetup {
+public class BaseSetup {
 
     public static Configuration configuration;
     private static final String UI_PAGE_OBJECTS_PACKAGE = "com.hsbc.qe.ui.pageobjects.";
@@ -20,7 +20,7 @@ public class InitSetup {
     WebDriver driver;
     DriverManagerUtils driverManagerUtils;
 
-    public InitSetup(TestContext testContext) {
+    public BaseSetup(TestContext testContext) {
         this.testContext = testContext;
         driver = testContext.getDriverManager().getDriver();
         configuration =  ConfigurationManager.getConfiguration();
@@ -30,7 +30,6 @@ public class InitSetup {
     public WebElement loadWebElement(String elementName, String pageClassName) {
         return loadAndFindPageElement(elementName, pageClassName);
     }
-
 
     private WebElement loadAndFindPageElement(String locatorName, String pageClassName) {
        WebElement element = null;

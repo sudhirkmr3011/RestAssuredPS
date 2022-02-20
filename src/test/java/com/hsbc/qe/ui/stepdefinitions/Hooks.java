@@ -1,6 +1,7 @@
 package com.hsbc.qe.ui.stepdefinitions;
 
 import com.hsbc.qe.ui.context.TestContext;
+import com.hsbc.qe.ui.webdriver.DriverManager;
 import com.hsbc.qe.ui.webdriver.TargetWebDriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -10,7 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import static com.hsbc.qe.ui.config.ConfigurationManager.getConfiguration;
 
-public class Hooks extends InitSetup {
+public class Hooks extends BaseSetup {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Hooks.class);
     WebDriver driver;
@@ -37,8 +38,8 @@ public class Hooks extends InitSetup {
     @After
     public void postCondition() {
 //        failTest();
-//        DriverManager.quitDriver();
-        testContext.getDriverManager().destroyDriver();
+        DriverManager.quitDriver();
+//        DriverManager.destroyDriver();
     }
 
 //    private void failTest() {
