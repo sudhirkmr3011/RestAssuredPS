@@ -1,11 +1,16 @@
 package com.hsbc.qe.ui.stepdefinitions;
 
+import com.hsbc.qe.common.utils.DateUtils;
 import com.hsbc.qe.ui.context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class PrebuiltInputSteps extends BaseSetup {
 
@@ -52,5 +57,14 @@ public class PrebuiltInputSteps extends BaseSetup {
     @Then("I dismiss the alert")
     public void dismissAlert(){
         driverManagerUtils.dismissTheAlert();
+    }
+
+    @When("I enter the date as today with {int} days into the {string} on the {string} page")
+    public void enterDate(int days, String elementName, String pageClassName) {
+        String dateFormatPattern = "yyyy-MM-dd";
+        WebElement element = loadWebElement(elementName, pageClassName);
+        String dateValue = DateUtils.getDate(days, dateFormatPattern);
+        driverManagerUtils.enterText(driver, element, dateValue);
+        LOGGER.info("Enter the date: {}", dateValue);
     }
 }
