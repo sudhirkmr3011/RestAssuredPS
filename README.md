@@ -1,307 +1,176 @@
+<div id="top"></div>
+<!--
+*** Thanks for checking out the Best-README-Template. If you have a suggestion
+*** that would make this better, please fork the repo and create a pull request
+*** or simply open an issue with the tag "enhancement".
+*** Don't forget to give the project a star!
+*** Thanks again! Now go create something AMAZING! :D
+-->
+
+
+
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/github_username/repo_name">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
+
+<h3 align="center">project_title</h3>
+
+  <p align="center">
+    project_description
+    <br />
+    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    ·
+    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
 <!-- TABLE OF CONTENTS -->
-<details open="open">
+<details>
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#accelerator-features">Accelerator Features</a></li>
+        <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
     <li>
-      <a href="#built-with">Built With</a>
-    </li>
-    <li>
       <a href="#getting-started">Getting Started</a>
-      	<ul>
-        		<li><a href="#prerequisites">Prerequisites</a></li> 
-        		<li><a href="#installation">Installation</a></li>       
-        </ul>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
     </li>
-    <li>
-    <a href="#usage">Usage</a>
-        <ul>
-            <li><a href="#writing-a-test">Writing a test</a></li>
-            <li><a href="#testing-environment-information">Testing Environment Information</a></li>
-            <li><a href="#api-under-test-information">API under test Information</a></li>
-            <li><a href="#sample-feature-file-to-understand-the-keywords">Sample Feature file to understand the keywords</a></li>
-            <li><a href="#key-words-used-in-cucumber-feature-files">Key Words used in Cucumber Feature Files</a></li>
-            <li><a href="#running-tests">Running tests</a></li>
-            <li><a href="#test-reports">Test Reports</a>
-                <ul>
-                <li><a href="#default-cucumber-report">Default Cucumber Report</a>
-                <li><a href="#allure-reporting">Allure Reporting</a>
-                </ul>
-            </li>
-        </ul>
-    </li>
-    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
+
+
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Welcome to PS Inner Source-Quality Engineering microservice-test-accelerator. API testing is a software testing practice that tests the APIs directly — from their functionality, reliability, performance, to security. API testing effectively validates the logic of the build architecture within a short amount of time.
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-This Accelerator is an API Functional Automation testing tool, and we can perform the functional testing of API's based on RestFull or SOAP Service
+Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
-Below are the Accelerator Features:
-
-### Accelerator Features
-  - Tests both REST and SOAP Calls
-  - Predefined Test Steps
-  - Predefined Assertions
-  - Soft Assertion
-  - Generating the test reports
-  - Jenkins Pipeline Integration
-  - Environment Agnostic
-  - Parallel Execution
-
-## Built With
-* **RESTAssured** - for testing the api services.
-* **Cucumber** - for BDD approach.
-* **Gradle** - build management tool.
-* **Hamcrest** - for asserting the api responses
-* **Allure** - for reporting the test results
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
+
+### Built With
+
+* [Next.js](https://nextjs.org/)
+* [React.js](https://reactjs.org/)
+* [Vue.js](https://vuejs.org/)
+* [Angular](https://angular.io/)
+* [Svelte](https://svelte.dev/)
+* [Laravel](https://laravel.com)
+* [Bootstrap](https://getbootstrap.com)
+* [JQuery](https://jquery.com)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for testing purposes.
+This is an example of how you may give instructions on setting up your project locally.
+To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-- JDK 11+
-- Gradle 6.1+
-- IDE (IntelliJ or Eclipse with Cucumber Plugin)
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
 
 ### Installation
 
-- Install Java and set path.
-- Install Gradle and set path.
-- Clone the repository using git.
-    - git clone <url>
+1. Get a free API Key at [https://example.com](https://example.com)
+2. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+3. Install NPM packages
+   ```sh
+   npm install
+   ```
+4. Enter your API in `config.js`
+   ```js
+   const API_KEY = 'ENTER YOUR API';
+   ```
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-This project is specifically designed to perform functional testing REST or SOAP API's:
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
-1. Perform functional test for given application.
-2. Provide Sample test to start the the API functional testing
 
-### Writing a test
+<!-- ROADMAP -->
+## Roadmap
 
-* The test case (cucumber feature file) goes in the `features` library and should have the ".feature" extension.
+- [ ] Feature 1
+- [ ] Feature 2
+- [ ] Feature 3
+    - [ ] Nested Feature
 
-* You can start writing test using reference at `features/createuser.feature`. You can extend this feature or make your own features using some of the predefined cucumber steps.
+See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
-### Testing Environment Information
-
-This Accelerator is Environment agnostic and you can provide the environment information under **src/test/resources/config/envconfig.yml** file
-
-```
-commonconfigs:
-   relaxed_https: 'true'
-   url_encoding_enabled: 'true'
-   max_timeout: '60'
-   polling_time: '5'
- 
-qaenv:
-   host_uri: 'https://jsonplaceholder.typicode.com'
-   context_path: '/comments'
-   follow_redirects: 'false'
-   proxy: 'http://localhost:8080/'
- 
-devenv:
-   host_uri: 'https://jsonplaceholder.typicode.com'
-   context_path: '/comments'
-   follow_redirects: 'false'
-   proxy: 'http://localhost:8080/'`
-```
-
-### API under test Information 
-
-As Already Mentioned in Sample Feature file how test will understand which API to test, we need to provide the api information under 
-
-* **src/test/resources/apischema/env_name(devenv | qaenv)/jsonplaceholder**
-
-    * **request.json** this file contains the api information
-        * ```
-          {
-            "base_path": "{{context_path}}", --> context_path value will be picked from src/test/resources/config/envconfig.yml file
-            "header": {
-              "Content-Type": "application/json"  --> Default Header Values
-            },
-            "request": {
-              "name": "microservice_test_accelerator" --> Actual API Schema
-            }
-          }
-          ```
-        * There is Host and Proxy configuration in the env file and for any api you want hit the api with different host or want to disbale the proxy for that api just male this changes request.json
-           ```
-          {
-            "host_uri": "https://xyz.com", --> This will change the host call for this  APi
-            "base_path": "{{context_path}}", --> context_path value will be picked from src/test/resources/config/envconfig.yml file
-            "proxy_disabled": "true", --> This will disable the proxy configuration only for this api call
-            "header": {
-                "Content-Type": "application/json"  --> Default Header Values
-            },
-            "request": {
-                "name": "microservice_test_accelerator" --> Actual API Schema
-            }
-          }
-           ```
-              
-    * **request_response_mapping.yml** this file contains the information of Request Key Mapping against the Response and verify all the matching key expected and actual value in test
-        * ```
-          CreateUser:
-            'name': 'name'
-          ```
-    * **testdata.yml** this file contains the test data information provide to api test (feature file)
-        * ```
-          User1:
-            name: 'microservice_test_accelerator'
-          ```
-          
-### Sample Feature file to understand the keywords
-
-```
-Feature: User Registration
-# In this example we are setting the api name to 'jsonplaceholder' and test will automatically pick the 'User1' data from testdata.yml file and will replace the values in request template and hit the endpoint based on the 'host_uri' in 'envconfig.yml' file under 'resources/config' and base_path in request.json template. base_path value will also drive from envconfig.yml
-
-# In the last step we are verifying the response againt the complete request, test will pick the key from 'request_response_mapping.yml' under the resources/schema/<env> and will verify the response value againt the request
-
-  @regression
-  Scenario Outline: User Post Details
-    Given I have API "<API>" --> This step will Understand which API to test. "jsonplaceholder" API information Exists under the src/test/resources/apischema/env_name/jsonplaceholder
-    And I set content-type as JSON
-    And I set request body for "<RequestBody>" --> This step will Understand which Test data to use for API to test. API Test data information Exists under the src/test/resources/apischema/env_name/jsonplaceholder/testdata.yml and will user the "User1" Testdata from testdata.yml file
-    When I call method POST --> This step will perofrm the API POST Operation
-    Then I verify response code is 201
-    Then I verify "CreateUser" in Response --> This step will verify the reponse verfication against the simple request being sent, This step will understand to pick the request reponse mapping from src/test/resources/apischema/env_name/jsonplaceholder/request_response_mapping.yml  and perform the verification for each key mapping present in request_response_mapping.yml file.
-    Examples:
-      | API             | RequestBody |
-      | jsonplaceholder | User1       |
-```
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
-```
-Feature: Customer Login
-# This is how background can be used to eliminate duplicate steps
-# For below 2 scenarios, user should first go to login page is a common step. Hence that can be given as a background step.
-Background:
-   User navigates to Login Page
-   Given I am on login page
-
-# Scenario with AND
-Scenario:
-   When I enter username as "TOM"
-   And I enter password as "JERRY"
-   Then Login should fail
-
-# Scenario with BUT
-Scenario:
-   When I enter username as "TOM"
-   And I enter password as "JERRY"
-   Then Login should fail
-   But Re-login option should be available
-```
-
-### Key Words used in Cucumber Feature Files
-
-- Feature (A suitable name for your scenarios in that feature file)
-- Scenario (A suitable name for the scenario you are trying to write)
-- Given, When, Then, And, But (step keywords to describe the flow)
-- Background (Common step to run for all scenarios in that feature file)
-- Scenario Outline
-- Examples (Using Scenario Outline and Examples, scenario can be repeated with multiple values from Examples table)
-- | (Data Tables) - Data Tables can be used to pass multiple values in the same step
-- @ (Tags) - Particular scenario/feature can be executed by running with tags.
-- '#' can be used to provide Comments
-Cucumber Tutorials: https://docs.cucumber.io/guides/10-minute-tutorial/
-
-
-### Running tests
-
-There are two ways to run the test from this project
-
-1. RunCucumberTest java file at location **src/test/java/com/microservice/test/accelerator/runner/RunCucumberTest.java**
-    1. You can provide the test tag information in Runner file and Just Run the Test using Java File
-    2. By Default the Env name is Selected in file **src/main/java/com/microservice/test/accelerator/constants/ConfigConstants.java**
-        ```
-       String DEFAULT_ENV = "qaenv";
-       ```
-      
-2. Using Command Line: Go to your project directory from terminal and execute following commands
-    * `gradle cucumber` to run all the tests on default env
-    * `gradle cucumber -Denv.type=<env_name> -Dtags=@<tag_name>` to run the specific tests on given env_name
-    * `gradle cucumber -Denv.type=<env_name>` to run all the tests on given env
-
-### Test Reports
- This Accelerator Supports Test Reporting using Default Cucumner Reports and Allure Reporting
- 
- #### Default Cucumber Report
-  You can find the basic Cucumber Report under **target/cucumber/cucumber-report.html**
-  
-  ![Cucumber Reort](images/CucumberReport.png)
-  
-  #### Allure Reporting
-  This Accelerator also integrated with Allure Reporting Framework. You can find the report after the Tests Execution
-  * directory for Allure report in the current project, **build/reports/allure-report/index.html** by default
-  
-  ![Allure Report](images/Allure1.png?raw=true)
-  
-  ![Allure Report](images/Allure2.png?raw=true)
-
-## FAQ
-**Q:** Does this Accelerator Support all HTTP status codes assertion
- 
-**A:** Yes, We can assert any HTTP status code using common step **Then I verify response code is 201**
- 
- ##
-**Q:** Does this Accelerator has Ability to manage test data across multiple Environment
- 
- **A:** Yes, You can manage the test data for each environments under **src/test/resources/apischema/<env_name>**
- 
- ##
-**Q:** Does this Accelerator Environment Agnostic
- 
-**A:** Yes, You can provide multiple environments configuration in **src/test/resources/config/envconfig.yml**
- 
- ##
-**Q:** Does this Accelerator Support Parallel Execution of Tests
- 
-**A:** Yes, This Accelerator supports parallel Execution of Tests, you need to provide cucumber **--thread** count in build file cucumber options
-   ```
-   args = ['--plugin', 'pretty', '--plugin' , 'json:target/cucumber.json', '--plugin' , 'io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm' , '--glue', 'com.microservice.test.accelerator.stepdefs', 'src/test/resources/features' , --threads,'5']
-   ```
- ##
- 
-**Q:** Does this Accelerator has In-built Test Reporting 
- 
-**A:** Yes, This Accelerator Support Default Cucumber Reporting as well As Allure Reporting
- 
- ##
-**Q:** Does this Accelerator has ability to evaluate headers and cookies
- 
-**A:** Yes, you can evaluate any headers and cookeis of api under test and save it in testcontext for further use.
-
- ##
- 
-**Q:** Does this Accelerator supports Schema Validation
- 
-**A:** Yes, This Accelerator Support Schema Validation using JSON Schema Validation with Rest-Assured
 
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
+Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
@@ -309,6 +178,53 @@ Contributions are what make the open source community such an amazing place to b
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- CONTACT -->
 ## Contact
-Sumit Sharma (sumit.sharma31@publicissapient.com)
+
+Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+
+Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+* []()
+* []()
+* []()
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo_name/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-url]: https://github.com/github_username/repo_name/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/repo_name/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
