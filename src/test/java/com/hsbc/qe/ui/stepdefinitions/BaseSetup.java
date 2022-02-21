@@ -3,14 +3,11 @@ package com.hsbc.qe.ui.stepdefinitions;
 import com.hsbc.qe.ui.config.Configuration;
 import com.hsbc.qe.ui.config.ConfigurationManager;
 import com.hsbc.qe.ui.context.TestContext;
-import com.hsbc.qe.ui.webdriver.DriverManager;
 import com.hsbc.qe.ui.webdriver.DriverManagerUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
 import java.lang.reflect.Field;
-import java.sql.Driver;
 
 public class BaseSetup {
 

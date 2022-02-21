@@ -3,9 +3,8 @@ package com.hsbc.qe.ui.reporter;
 import com.github.automatedowl.tools.AllureEnvironmentWriter;
 import com.google.common.collect.ImmutableMap;
 import com.hsbc.qe.ui.context.TestContext;
-import com.hsbc.qe.ui.webdriver.DriverManager;
 import io.qameta.allure.Attachment;
-import org.apache.xmlbeans.impl.xb.xsdschema.All;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
@@ -27,7 +26,6 @@ public class AllureManager {
                         put("Target execution", getConfiguration().target()).
                         put("Global timeout", String.valueOf(getConfiguration().timeout())).
                         put("Headless mode", String.valueOf(getConfiguration().headless())).
-                        put("Faker locale", getConfiguration().faker()).
                         put("Local browser", getConfiguration().browser()).
                         put("Grid URL", getConfiguration().gridUrl()).
                         put("Grid port", getConfiguration().gridPort()).
@@ -35,12 +33,25 @@ public class AllureManager {
     }
 
     @Attachment(value = "Failed test screenshot", type = "image/png")
-    public byte[] takeScreenshotToAttachOnAllureReport() {
-        return ((TakesScreenshot) testContext.getDriverManager().getDriver()).getScreenshotAs(BYTES);
+    public static byte[] takeScreenshotToAttachOnAllureReport(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(BYTES);
     }
 
-    @Attachment(value = "Browser information", type = "text/plain")
-    public String addBrowserInformationOnAllureReport() {
-        return testContext.getDriverManager().getInfo();
+    //Text attachments for Allure
+    @Attachment(value = "{0}", type = "text/plain")
+    public static String saveTextLog(String message) {
+        return message;
+    }
+
+    //HTML attachments for Allure
+    @Attachment(value = "{0}", type = "text/html")
+    public static String attachHtml(String html) {
+        return html;
+    }
+
+    //Text attachments for Allure
+    @Attachment(value = "Page screenshot", type = "image/png")
+    public static byte[] saveScreenshotPNG(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

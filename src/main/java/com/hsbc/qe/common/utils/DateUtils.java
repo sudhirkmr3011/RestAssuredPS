@@ -13,9 +13,7 @@ import java.util.TimeZone;
 public class DateUtils {
 
     private static final String dateFormat_YYYYMMDD = "yyyy-MM-dd";
-    private static final String dateFormat = "02/20/2022";
     private static final TimeZone timeZone = TimeZone.getTimeZone("UTC");
-
 
     public static String getTodayDateInString() throws ParseException {
         LocalDate date = LocalDate.now(ZoneOffset.UTC);

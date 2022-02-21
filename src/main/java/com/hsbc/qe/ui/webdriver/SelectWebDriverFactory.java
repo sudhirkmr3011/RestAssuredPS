@@ -6,14 +6,12 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.net.URL;
-
 import static com.hsbc.qe.ui.config.ConfigurationManager.getConfiguration;
 
-public class TargetWebDriverFactory {
+public class SelectWebDriverFactory {
 
-    private static final Logger logger = LogManager.getLogger(TargetWebDriverFactory.class);
+    private static final Logger LOGGER = LogManager.getLogger(SelectWebDriverFactory.class);
 
     public WebDriver createInstance(String browser) {
         Target target = Target.valueOf(getConfiguration().target().toUpperCase());
@@ -39,10 +37,10 @@ public class TargetWebDriverFactory {
 
             remoteWebDriver = new RemoteWebDriver(new URL(gridURL), capability);
         } catch (java.net.MalformedURLException e) {
-            logger.error("Grid URL is invalid or Grid is not available");
-            logger.error(String.format("Browser: %s", capability.getBrowserName()), e);
+            LOGGER.error("Grid URL is invalid or Grid is not available");
+            LOGGER.error(String.format("Browser: %s", capability.getBrowserName()), e);
         } catch (IllegalArgumentException e) {
-            logger.error(String.format("Browser %s is not valid or recognized", capability.getBrowserName()), e);
+            LOGGER.error(String.format("Browser %s is not valid or recognized", capability.getBrowserName()), e);
         }
 
         return remoteWebDriver;

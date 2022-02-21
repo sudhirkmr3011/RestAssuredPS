@@ -6,7 +6,7 @@ Feature: Validate user login functionality
     And I enter the value "standard_user" into the "usernameInput" on the "LoginPage" page
     And I enter the value "secret_sauce" into the "passwordInput" on the "LoginPage" page
     When I click the "loginButton" on the "LoginPage" page
-    Then I verify that the "Swag" text exactly matches the current page title
+    Then I verify that the "Swag Labs" text exactly matches the current page title
 
   @Regression @Login
   Scenario: As a locked user, user should not be logged in
@@ -25,14 +25,4 @@ Feature: Validate user login functionality
     And I enter the value "secret_sauce" into the "passwordInput" on the "LoginPage" page
     When I click the "loginButton" on the "LoginPage" page
     Then I verify that the "Swag Labs" text exactly matches the current page title
-
-
-  @Regression @Login
-  Scenario: As an user with invalid credentials, kjjdf kjdfk kjjdf
-    Given I am in App main site
-    And I enter the value "standard_user" into the "usernameInput" on the "LoginPage" page
-    And I enter the value "******" into the "passwordInput" on the "LoginPage" page
-    When I click the "loginButton" on the "LoginPage" page
-      | errorMessage                                                |
-      | Username and password do not match any user in this service |
 

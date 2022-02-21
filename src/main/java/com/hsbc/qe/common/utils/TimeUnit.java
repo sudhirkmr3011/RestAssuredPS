@@ -10,7 +10,6 @@ public enum TimeUnit {
     MINUTES(java.util.concurrent.TimeUnit.MINUTES, "m", "min", "minute", "minutes"),
     HOURS(java.util.concurrent.TimeUnit.HOURS, "h", "hour", "hours");
 
-
     private final List<String> keys;
     private final java.util.concurrent.TimeUnit timeUnit;
 

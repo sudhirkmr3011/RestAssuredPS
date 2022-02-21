@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
                 monochrome = true,
                 features = "src/test/resources/ui/features",
                 glue = {"com.hsbc.qe.ui.stepdefinitions"},
-        tags = "@excel")
+                tags = "@Regression")
 
 public class RunUIParallelTest extends AbstractTestNGCucumberTests {
     @Override

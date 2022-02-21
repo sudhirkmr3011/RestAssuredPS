@@ -4,14 +4,11 @@ import com.hsbc.qe.api.constants.FilePaths;
 import com.hsbc.qe.common.utils.ExcelReader;
 import com.hsbc.qe.ui.context.TestContext;
 import com.hsbc.qe.ui.pageobjects.LoginPage;
-import com.hsbc.qe.ui.webdriver.DriverManagerUtils;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.When;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +30,7 @@ public class LoginSteps extends BaseSetup {
     public void enterLoginFromExcel(String fileName, String sheetName, Integer rowNumber) throws IOException, InvalidFormatException {
         ExcelReader reader = new ExcelReader();
         List<Map<String,String>> testData =
-                reader.getData(FilePaths.EXCEL_TEST_DATA + fileName + ".xlsx", sheetName);
+                reader.getDataFromExcelSheet(FilePaths.EXCEL_TEST_DATA + fileName + ".xlsx", sheetName);
         String username = testData.get(rowNumber).get("username");
         String password = testData.get(rowNumber).get("password");
         loginPage.enterLoginDetails(username, password);
@@ -52,7 +49,7 @@ public class LoginSteps extends BaseSetup {
 
             ExcelReader reader = new ExcelReader();
             List<Map<String,String>> testData =
-                    reader.getData(FilePaths.EXCEL_TEST_DATA + excelFileName + ".xlsx", sheetName);
+                    reader.getDataFromExcelSheet(FilePaths.EXCEL_TEST_DATA + excelFileName + ".xlsx", sheetName);
 
             if(locatorName.contains("username")) {
                 String username = testData.get(rowNumber).get("username");

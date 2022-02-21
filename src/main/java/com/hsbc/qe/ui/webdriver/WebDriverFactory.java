@@ -17,7 +17,6 @@ import org.openqa.selenium.opera.OperaOptions;
 import org.openqa.selenium.remote.AbstractDriverOptions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-
 import static com.hsbc.qe.ui.config.ConfigurationManager.getConfiguration;
 import static java.lang.Boolean.TRUE;
 
@@ -44,7 +43,6 @@ public enum WebDriverFactory {
         @Override
         public WebDriver createDriver() {
             WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-
             return new FirefoxDriver(getOptions());
         }
 
@@ -114,7 +112,6 @@ public enum WebDriverFactory {
         @Override
         public WebDriver createDriver() {
             WebDriverManager.getInstance(DriverManagerType.IEXPLORER).setup();
-
             return new InternetExplorerDriver(getOptions());
         }
 
@@ -127,7 +124,6 @@ public enum WebDriverFactory {
 
             if (TRUE.equals(getConfiguration().headless()))
                 throw new HeadlessNotSupportedException(internetExplorerOptions.getBrowserName());
-
             return internetExplorerOptions;
         }
     };

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.Reader;
 
 public class GsonUtils {
+
     Gson gson;
     public GsonUtils() {
         GsonBuilder gsonBuilder = new GsonBuilder();

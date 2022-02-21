@@ -15,28 +15,47 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.NumberToTextConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ExcelReader {
-    public List<Map<String, String>> getData(String excelFilePath, String sheetName)
+
+    private final static Logger LOGGER = LoggerFactory.getLogger(FileUtil.class);
+
+    /**
+     * Method to read the data from the Excel sheet
+     * @param excelFilePath path to the Excel file
+     * @param sheetName sheet name to read the data
+     * @return
+     * @throws InvalidFormatException
+     * @throws IOException
+     */
+    public List<Map<String, String>> getDataFromExcelSheet(String excelFilePath, String sheetName)
             throws InvalidFormatException, IOException {
         Sheet sheet = getSheetByName(excelFilePath, sheetName);
         return readSheet(sheet);
     }
 
-    public List<Map<String, String>> getData(String excelFilePath, int sheetNumber)
+    /**
+     * Method to read the data from the Excel sheet
+     * @param excelFilePath path to the Excel file
+     * @param sheetNumber sheet number to read the data
+     * @return
+     * @throws InvalidFormatException
+     * @throws IOException
+     */
+    public List<Map<String, String>> getDataFromExcelSheet(String excelFilePath, int sheetNumber)
             throws InvalidFormatException, IOException {
         Sheet sheet = getSheetByIndex(excelFilePath, sheetNumber);
         return readSheet(sheet);
     }
 
     private Sheet getSheetByName(String excelFilePath, String sheetName) throws IOException, InvalidFormatException {
-        Sheet sheet = getWorkBook(excelFilePath).getSheet(sheetName);
-        return sheet;
+        return getWorkBook(excelFilePath).getSheet(sheetName);
     }
 
     private Sheet getSheetByIndex(String excelFilePath, int sheetNumber) throws IOException, InvalidFormatException {
-        Sheet sheet = getWorkBook(excelFilePath).getSheetAt(sheetNumber);
-        return sheet;
+        return getWorkBook(excelFilePath).getSheetAt(sheetNumber);
     }
 
     private Workbook getWorkBook(String excelFilePath) throws IOException, InvalidFormatException {

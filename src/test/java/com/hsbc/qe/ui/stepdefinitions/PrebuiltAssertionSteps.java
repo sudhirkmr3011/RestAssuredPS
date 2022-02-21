@@ -26,7 +26,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text exactly matches the element text
      */
-    @Given("I verify that the {string} text exactly matches the text of the {string} field on the {string} page")
+    @Then("I verify that the {string} text exactly matches the text of the {string} field on the {string} page")
     public void verifyTheElementText(String elementName, String expectedValue, String pageClassName) {
         String actualValue = driverManagerUtils.getElementText(driver, loadWebElement(elementName,pageClassName));
         assertThat("Element text not matching", actualValue, is(equalTo(expectedValue)));
@@ -35,7 +35,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text partially matches the element text
      */
-    @Given("I verify that the {string} text partially matches the text of the {string} field on the {string} page")
+    @Then("I verify that the {string} text partially matches the text of the {string} field on the {string} page")
     public void verifyTheElementTextPartially(String elementName, String expectedValue, String pageClassName) {
         String actualValue = driverManagerUtils.getElementText(driver, loadWebElement(elementName,pageClassName));
         assertThat("Element text not matching", actualValue, containsString(expectedValue));
@@ -44,7 +44,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text exactly matches the element text using data table
      */
-    @Given("I verify that the following message should exactly match the text of the {string} field on the {string} page")
+    @Then("I verify that the following message should exactly match the text of the {string} field on the {string} page")
     public void verifyTheElementTextWithListDataTable(String elementName, String pageClassName, DataTable dataTable) {
         List<List<String>> data = dataTable.asLists();
         String errorMessage = data.get(1).get(0);
@@ -55,7 +55,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text partially matches the element text with data table
      */
-    @Given("I verify that the following message should be included in the text of the {string} field on the {string} page")
+    @Then("I verify that the following message should be included in the text of the {string} field on the {string} page")
     public void verifyTheElementTextPartiallyWithListDataTable(String elementName, String pageClassName, DataTable dataTable) {
         List<List<String>> data = dataTable.asLists();
         String errorMessage = data.get(1).get(0);
@@ -78,7 +78,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text exactly matches the page title
      */
-    @Given("I verify that the {string} text exactly matches the current page title")
+    @Then("I verify that the {string} text exactly matches the current page title")
     public void verifyTheTextMatchesThePageTitle(String ePageTitleText) {
         String aPageTitle = driverManagerUtils.getPageTitle();
         assertThat("Page tiles are not matching", aPageTitle, is(equalTo(ePageTitleText)));
@@ -87,7 +87,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text partially matches the page title
      */
-    @Given("I verify that the {string} text included in the title of the {string} page")
+    @Then("I verify that the {string} text included in the title of the {string} page")
     public void verifyTheTextPartiallyMatchesThePageTitle(String ePageTitleText) {
         String aPageTitle = driverManagerUtils.getPageTitle();
         assertThat("Page tiles are not matching", aPageTitle, containsString(ePageTitleText));
@@ -96,7 +96,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text exactly matches the page title using data table
      */
-    @Given("I verify that the following message should exactly match the page title")
+    @Then("I verify that the following message should exactly match the page title")
     public void verifyTheTextMatchesThePageTitleDataTable(DataTable dataTable) {
         List<List<String>> data = dataTable.asLists();
         String ePageTitleText = data.get(1).get(0);
@@ -107,7 +107,7 @@ public class PrebuiltAssertionSteps extends BaseSetup {
     /**
      * Step to check that the given text partially matches the page title with data table
      */
-    @Given("I verify that the following message should partially match the page title")
+    @Then("I verify that the following message should partially match the page title")
     public void verifyTheTextPartiallyMatchesThePageTitleDataTable(DataTable dataTable) {
         List<List<String>> data = dataTable.asLists();
         String ePageTitleText = data.get(1).get(0);
@@ -133,11 +133,10 @@ public class PrebuiltAssertionSteps extends BaseSetup {
         assertThat("Element should not be enabled on the page", isElementDisplayed, equalTo(false));
     }
 
-
     /**
      * Step to check that the element should be checked or not on the page
      */
-    @Given("I verify that the {string} checkbox is checked|unchecked on the {string} page")
+    @Then("I verify that the {string} checkbox is checked|unchecked on the {string} page")
     public void i_verify_that_the_checkbox_is_checked_unchecked_on_the_page(String elementName, String elementState, String pageClassName) {
         boolean isElementChecked = driverManagerUtils.isElementSelected(loadWebElement(elementName, pageClassName));
         if(elementState.equals("checked")){

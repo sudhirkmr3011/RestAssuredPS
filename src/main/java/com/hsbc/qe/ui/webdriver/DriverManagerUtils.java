@@ -1,7 +1,5 @@
 package com.hsbc.qe.ui.webdriver;
 
-import org.apache.log4j.LogManager;
-import org.bouncycastle.pqc.crypto.newhope.NHOtherInfoGenerator;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,12 +8,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
-
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.testng.Assert.assertTrue;
 
 public class DriverManagerUtils {
 
@@ -54,7 +49,6 @@ public class DriverManagerUtils {
     }
 
     // HANDLING WINDOWS
-
     public void switchToNewWindow() {
         System.out.println(driver.getWindowHandles());
         for(String winHandle : driver.getWindowHandles()){

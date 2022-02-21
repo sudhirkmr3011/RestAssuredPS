@@ -3,7 +3,6 @@ package com.hsbc.qe.ui.webdriver;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
-
 import java.util.ArrayList;
 import java.util.List;
 

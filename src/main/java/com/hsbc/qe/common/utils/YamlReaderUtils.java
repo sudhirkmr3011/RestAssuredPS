@@ -19,7 +19,7 @@ public class YamlReaderUtils {
     /**
      * The logger for this class
      */
-    private final static Logger logger = LoggerFactory.getLogger(YamlReaderUtils.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(YamlReaderUtils.class);
 
     /**
      * The loaded yaml data
@@ -49,9 +49,7 @@ public class YamlReaderUtils {
         } else {
 
             this.yamlObj = null;
-
         }
-
     }
 
     /**
@@ -81,12 +79,9 @@ public class YamlReaderUtils {
 
         } catch (final IOException e1) {
 
-            logger.debug(e1.toString(), "Error while loading yaml");
-
+            LOGGER.debug(e1.toString(), "Error while loading yaml");
         }
-
         this.yamlObj = yamlObjLocal;
-
     }
 
     /**
