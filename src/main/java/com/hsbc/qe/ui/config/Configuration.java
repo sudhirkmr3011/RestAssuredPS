@@ -9,6 +9,7 @@ import org.aeonbits.owner.Config.LoadType;
         "system:properties",
         "classpath:general.properties",
         "classpath:local.properties",
+        "classpath:db.properties",
         "classpath:grid.properties"})
 public interface Configuration extends Config {
 
@@ -45,6 +46,20 @@ public interface Configuration extends Config {
     @Key("grid.port")
     String gridPort();
 
-    @Key("faker.local")
-    String faker();
+    @Key("db.host")
+    String dbHost();
+
+    @Key("db.port")
+    String dbPort();
+
+    @Key("db.name")
+    String dbName();
+
+    @Key("db.user")
+    String dbUser();
+
+    @Key("db.password")
+    String dbPassword();
+
+
 }
