@@ -1,6 +1,6 @@
 package com.hsbc.qe.api.httpoperations;
 
-import com.hsbc.qe.api.utils.TimeUtil;
+import com.hsbc.qe.common.utils.TimeUtil;
 import io.restassured.response.Response;
 import org.hamcrest.Matcher;
 

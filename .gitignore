@@ -7,5 +7,6 @@ apilogs
 target
 logs
 .allure/
+allure-results
 screenshots/
 

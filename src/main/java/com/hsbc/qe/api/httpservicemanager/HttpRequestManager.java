@@ -4,7 +4,7 @@ import com.hsbc.qe.api.httpoperations.HttpsCertTrust;
 import com.hsbc.qe.api.httpoperations.WaitCondition;
 import com.hsbc.qe.api.constants.ConfigConstants;
 import com.hsbc.qe.api.customexceptions.CustomException;
-import com.hsbc.qe.api.utils.TimeUtil;
+import com.hsbc.qe.common.utils.TimeUtil;
 import io.restassured.RestAssured;
 import io.restassured.filter.Filter;
 import io.restassured.specification.RequestSpecification;

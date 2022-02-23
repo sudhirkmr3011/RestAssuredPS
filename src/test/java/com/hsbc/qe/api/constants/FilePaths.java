@@ -16,4 +16,6 @@ public class FilePaths {
 
   public static final String EXPECTED_JSON_RESPONSE = "api/api_data/env_type/api_path/expected_response.json";
 
+  public static final String EXCEL_TEST_DATA = "src/test/resources/exceldata/";
+
 }

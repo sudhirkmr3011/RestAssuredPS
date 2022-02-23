@@ -1,52 +1,43 @@
 package com.hsbc.qe.ui.pageobjects;
 
-import com.hsbc.qe.ui.browsermanager.BrowserUtilities;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-public class LoginPage {
+public class LoginPage extends AbstractPageObject {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(LoginPage.class);
-    public WebDriver webDriver;
-    public BrowserUtilities browser;
+    WebDriver driver;
 
-    public LoginPage(WebDriver webDriver) throws Exception {
-        this.webDriver = webDriver;
-        browser = new BrowserUtilities(webDriver);
-        PageFactory.initElements(webDriver, this);
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     @FindBy(id = "user-name")
-    private WebElement userNameTextbox;
+    public static WebElement usernameInput;
 
     @FindBy(id = "password")
-    private WebElement passwordTextbox;
+    public static WebElement passwordInput;
 
     @FindBy(id = "login-button")
-    private WebElement loginButton;
+    public static WebElement loginButton;
 
-    public void navigateToUrl(String url) {
-        browser.navigateTo(url);
-        LOGGER.info("Navigate to the url: {}", url);
-    }
+    @FindBy(css = "h3[data-test='error']")
+    public static WebElement loginButtonError;
 
-    public void enterUsername(String userName) {
-        browser.clearAndEnterText(userNameTextbox, userName);
-        LOGGER.info("Enter first name: ", userName);
+    public void enterUserName(String email) {
+        this.usernameInput.sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        browser.clearAndEnterText(passwordTextbox, password);
-        LOGGER.info("Enter last name: {}", password);
+        this.passwordInput.sendKeys(password);
     }
 
-    public void clickLoginButton() throws Exception {
-        browser.click(loginButton);
-        browser.waitForJQueryLoad();
-        LOGGER.info("Login to the app.");
+    public void enterLoginDetails(String username, String password) {
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
     }
 }
