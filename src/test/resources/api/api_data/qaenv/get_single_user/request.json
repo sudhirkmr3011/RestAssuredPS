@@ -1,4 +1,5 @@
 {
+"host_uri": "https://reqres.in/api",
   "base_path": "{{context_path}}/users/2",
   "header": {
     "Content-Type": "application/json"

@@ -3,8 +3,8 @@ package com.hsbc.qe.api.stepdefs;
 import com.google.common.base.Strings;
 import com.hsbc.qe.api.httpservicemanager.RestRequestManager;
 import com.hsbc.qe.api.util.ApiUtilManager;
-import com.hsbc.qe.constants.Entity;
-import com.hsbc.qe.constants.Headers;
+import com.hsbc.qe.api.constants.Entity;
+import com.hsbc.qe.api.constants.Headers;
 import com.hsbc.qe.api.enums.ApiContext;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -29,6 +29,7 @@ public class CommonGivenTestSteps {
     testManagerContext.getScenarioContext().setContext(ApiContext.API_NAME, apiName);
     ApiUtilManager apiUtilManager = new ApiUtilManager();
     String basePath = apiUtilManager.getBasePath((String) testManagerContext.getScenarioContext().getContext(ApiContext.API_NAME));
+    System.out.println("babs "+basePath);
     testManagerContext.getScenarioContext().setContext(ApiContext.BASE_PATH, basePath);
     apiUtilManager.setEntityHostURI(apiName, testManagerContext);
     restRequestManager.clearRequestBody();

@@ -18,7 +18,9 @@ public enum HttpOperations {
 
     public Response doRequest(RequestSpecification when, String url) {
         switch (this) {
-            case GET: return when.get(url);
+            case GET:
+//                System.out.println("value 2 "+when.get(url));
+                return when.get(url);
             case POST: return when.post(url);
             case PUT: return when.put(url);
             case DELETE: return when.delete(url);

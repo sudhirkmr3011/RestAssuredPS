@@ -64,6 +64,7 @@ public class RestRequestManager {
     }
 
     public String getRequestBody() {
+        System.out.println("req body "+requestBody);
         return requestBody;
     }
 
@@ -101,6 +102,7 @@ public class RestRequestManager {
         this.param.putAll(params);
     }
     public Map<String, String> getParam(){
+        System.out.println("get param "+this.param);
         return this.param;
     }
 

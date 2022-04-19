@@ -29,7 +29,8 @@ public class ConfigManager {
             YamlReaderUtils yamlReaderUtils = new YamlReaderUtils(iStream);
             yamlReaderUtils.getYamlObj(ConfigConstants.COMMON_PROPERTIES).entrySet().stream().forEach(en -> envProperties.put(en.getKey(),(String)en.getValue()));
             yamlReaderUtils.getYamlObj(envFileName).entrySet().stream().forEach(en -> envProperties.put(en.getKey(),(String)en.getValue()));
-            envProperties.entrySet().stream().forEach(en -> logger.info(en.getKey() + ":" + en.getValue()));
+//            System.out.println(en.getKey() + ":" + en.getValue());
+            envProperties.entrySet().stream().forEach(en -> logger.info("hello "+en.getKey() + ":" + en.getValue()));
         } catch (Exception e) {
             logger.error("Error in loading the environment yml file {}",environmentConfigPath);
         }
@@ -52,6 +53,7 @@ public class ConfigManager {
 
     public String getEnvPropertyOrSetDefault(String key, String defaultValue) {
         Optional<String> value = Optional.ofNullable(envProperties.get(key));
+        System.out.println("get env "+value.orElse(defaultValue));
         return value.orElse(defaultValue);
     }
 

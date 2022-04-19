@@ -43,7 +43,9 @@ public class HttpResponseManager {
 
         try {
             response = doRequest(url, method).call();
-            response.then().log().all(true);
+            System.out.println("resp val "+response.then().log().all(true));
+            System.out.println("***********");
+//            response.then().log().all(true);
         } catch (RuntimeException e) {
             if (!expectException) {
                 throw e;
@@ -51,9 +53,9 @@ public class HttpResponseManager {
             exception = e;
         }
 
-        httpRequestManager.initNewSpecification();
-        restRequestManager.clearRequestFormParam();
-        restRequestManager.clearRequestParam();
+//        httpRequestManager.initNewSpecification();
+//        restRequestManager.clearRequestFormParam();
+//        restRequestManager.clearRequestParam();
         return response;
     }
 
@@ -72,7 +74,9 @@ public class HttpResponseManager {
             final Matcher matcher = replacePlaceHolderPattern.matcher(url);
             authenticate();
             String base_uri = world.getEnvProperty(ConfigConstants.ENTITY_HOST_URI);
+            System.out.println("uriii "+base_uri);
             Boolean proxy_disabled = world.getBoolean(ConfigConstants.ENTITY_PROXY_SET);
+            System.out.println("proxy set "+proxy_disabled);
             if (!Strings.isNullOrEmpty(base_uri)) {
                 httpRequestManager.specification.baseUri(base_uri);
             }
@@ -109,8 +113,11 @@ public class HttpResponseManager {
                 }
             }
             final RequestSpecification requestSpec = httpRequestManager.value();
+            System.out.println("value "+requestSpec);
             requestSpec.log().all();
             beforeRequest(requestSpec);
+//            System.out.println("final val "+method.doRequest(requestSpec, base_path));
+//            System.out.println("****end");
             return method.doRequest(requestSpec, base_path);
         };
     }

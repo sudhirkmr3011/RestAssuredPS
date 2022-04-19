@@ -1,17 +1,18 @@
 Feature: List Users
 
-  @apitest
-  Scenario Outline: Get users Status
+  @apitestdemo1111
+  Scenario Outline: Get users Status dd
     Given I have API "<API>"
     And I set content-type as JSON
     When I call method 'GET'
     Then I get the response
+    Then I Fetch the response value with key "first_name"
     Then I verify response code is "<Status_Code>"
     Examples:
       | API         |       Status_Code|
       | get_single_user |     200     |
-      | get_all_users |        200     |
-      | user_not_found|    404    |
+#      | get_all_users |        200     |
+#      | user_not_found|    404    |
 
 
   @apitest
